@@ -31,6 +31,10 @@
 
 		<div class="side_nav1">
 			<ul>
+				<a href="account.jsp"> <img
+					src="assets/images/profile_picture_user_icon_153847.png"
+					 id="asst" width="30px" alt="no error">
+				</a>
 
 
 			</ul>
@@ -45,8 +49,9 @@
 
 	<div class="header_prt1">
 		<ul>
-			<li><a href="../pages/explore.html">Explore |</a></li>
-			<li><a href="../pages/categories.html">Shop our product |</a></li>
+			<li><a href="explore.jsp">Explore |</a></li>
+			<li><a href="home.jsp">home |</a></li>
+			<li><a href="categories.jsp">Shop our product |</a></li>
 			<li><a href="">Find Service </a></li>
 
 		</ul>
@@ -153,8 +158,7 @@
 						for="productName">
 						<h3>Name:</h3>
 					</label> <input type="text" id="productName" name="productName1" required>
-					<br>
-					<label for="productDescription">
+					<br> <label for="productDescription">
 						<h3>Description:</h3>
 					</label> <input type="text" id="productDescription"
 						name="productDescription1" required> <br> <label

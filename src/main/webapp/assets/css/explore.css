@@ -1,0 +1,337 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color:  rgba(255,242,238,255);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    
+   }
+
+   
+  
+   .logo img{
+    margin-left: 30px;
+   }
+  
+   .side1_nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-right: 170px;
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: gray;
+   }
+  
+   .side1_nav ul li{
+  margin-left: 20px;
+   }
+  
+   .side1_nav ul a{
+    text-decoration: none;
+    color: gray
+    
+   }
+   
+    
+  
+   #search{
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+   }
+   .input i{
+    background-color:sandybrown;
+    color: black;
+    padding: 13px 20px;
+    border-radius: 5px;
+   }
+  
+  #hr1 hr ,#hr2 hr{
+    width: 1200px;
+    margin-left: 100px;
+   }
+  
+   .input #search{
+    padding: 10px 180px 10px 180px;
+    margin-top: 20px;
+    margin-left: 30px;
+   }
+  .header_prt1 ul {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header_prt1 ul li {
+    margin-left: 30px;
+    list-style: none;
+  }
+  .header_prt1 a{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: gray;
+  }
+  
+ 
+
+.search1 {
+    position: absolute;
+    top: 400px;
+    left: 400px;
+    text-align: center;
+    color: white;
+    z-index: 0;
+}
+
+
+.search1 {
+    font-size: 30px;
+}
+
+.search1 p {
+    font-size: 20px;
+}
+
+#search1 {
+    margin-top: 20px;
+    padding: 15px;
+    padding-right: 60px;
+    padding-left: 60px;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    margin-right: 250px;
+    outline: none;
+}
+
+span button {
+    position: relative;
+
+    color: white;
+    font-size: 20px;
+    border: none;
+    left: 500px;
+    top: 0px;
+    background-color:sandybrown;
+    padding-top: 16px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 16px;
+}
+
+.back_groud img {
+    width: 1490px;
+    height: 900px;
+}
+
+.headerdown {
+    background-color: rgba(247, 225, 232, 255);
+    letter-spacing: 1px;
+    padding-bottom: 40px;
+    padding-top: 50px;
+    display: flex;
+}
+
+.headerdown p {
+    font-size: 20px;
+    margin-left: 200px;
+
+}
+
+.headerdown h1 {
+    margin-left: 200px;
+    margin-top: 70px;
+    font-size: 40px;
+}
+
+.headerdowndiv2 img {
+    width: 230px;
+    margin-left: 50px;
+    border-radius: 10px;
+}
+
+.slidesilder {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1300px;
+    margin-top: 50px;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.slider{
+    margin-top: 90px;
+    margin-left: 40px;
+}
+
+/*  */
+main {
+    display: flex;
+    justify-content: space-evenly;
+
+
+}
+
+.content img {
+    margin-left: 50px;
+}
+
+.thing{
+    background-color: rgba(244,239,226,255);
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.top2 {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 30px;
+}
+
+.content img {
+    width: 350px;
+}
+
+/* .content1 {
+    display: flex;
+} */
+
+.content1 {
+    text-align: center;
+}
+
+.thing {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+}
+
+.thing h1 {
+    font-size: 40px;
+    margin-left: 420px;
+
+}
+
+.swipebut button {
+    background-color: rgba(244,239,226,255);
+    box-shadow: 3px 3px 3px black;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 50px;
+    font-size: 15px;
+    text-align: center;
+}
+.wholeart_div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.artist_division{
+    margin: 20px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    width: 340px;
+    height: 530px; 
+    display: flex;
+    flex-direction: column;
+}
+.artist_division .profile-image{
+    border-radius: 50px;
+    width: 250px;
+    padding: 40px;
+}
+.artist_division .profile{
+    display: flex;
+    flex-direction: column;
+}
+.artist_division .profile img{
+    border-radius: 500px;
+    border-top:5px solid white;
+    width: 160px;
+
+}
+.profile{
+    position: relative;
+    bottom: 160px;
+    left: 90px;
+}
+.profile .profile2{
+    margin-left: 20px;
+     line-height: 30px;
+}
+
+.artist{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+
+.not1 {
+    text-align: center;
+    padding-top: 80px;
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(191, 214, 214);
+    margin-top: 70px;
+    height: 300px;
+  }
+  
+  .not1 p {
+    font-size: 20px;
+    color: gray;
+  }
+  
+  .not1 a {
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    background-color: grey;
+  }
+
+ 
+
+/* footer */
+.footer_one{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer_zone2{
+
+  display: flex;
+  align-items: center;
+ font-size: 30px;
+ color: black;
+ margin-left: 40px;
+}
+
+.footer_zone2 i{
+  padding-left: 30px;
+}
+
+.foot{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

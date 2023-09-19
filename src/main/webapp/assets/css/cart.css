@@ -1,0 +1,186 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    background-color:  rgba(255,242,238,255);
+}
+span a{
+  background-color: orange;
+  color: orange;
+}
+
+button a{
+  background-color:  rgba(251,186,113,255);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.side_nav {
+  display: flex;
+  align-items: center;
+}
+
+.side_nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  /* margin-top: 30px; */
+  font-family: 'Poppins', sans-serif;
+  color: orange;
+}
+
+.side_nav ul li {
+  margin-left: 30px;
+}
+
+.side_nav ul a {
+  text-decoration: none;
+  color: gray;
+}
+
+.side_nav ul li img{
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.side_nav span button {
+  margin-left: 20px;
+  background-color:   rgba(251,186,113,255);
+  padding: 12px 25px 12px 25px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+}
+
+.side_nav span button a {
+  color: black;
+  font-size: 15px;
+}
+
+#search {
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+.input i {
+  background-color:   rgba(251,186,113,255);
+  
+  color: black;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+
+.input #search {
+  padding: 10px 180px 10px 180px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.header_prt1 ul {
+  display: flex;
+  justify-content: center;
+}
+
+.header_prt1 ul li {
+  margin-top: 20px;
+  margin-left: 30px;
+  list-style: none;
+}
+
+.header_prt1 a {
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: gray;
+}
+
+  .main h2{
+    margin-top: 20px;
+    background-color:  rgba(251,186,113,255);
+    color: black;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+
+  .main2{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  hr{
+    margin-top: 30px;
+    width: 1300px;
+    margin-left: 130px;
+  }
+
+  .motherchild{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    list-style: 6;
+    letter-spacing: 2px;
+  }
+
+  .mother h3{
+    margin-bottom: 10px;
+  }
+
+  .mother2{
+    margin-top: 20px;
+  }
+
+  #text{
+    padding: 10px;
+    padding-right: 180px;
+    
+    margin-top: 5px;
+  }
+
+  .motherchild1 h2{
+          margin-bottom: 20px;
+          float: right;
+  }
+
+  .motherchild1 {
+    margin-top: 60px;
+  }
+
+ 
+  .yellow1{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 150px;
+  }
+  button{
+    margin-left: 370px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: orange;
+    border-radius: 50px;
+    border: none;
+  }
+
+  button a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+
+  .mother h3,h2{
+    color: grey;
+}
+
+/* in */
+
+
+ 

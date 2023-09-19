@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.fssa.zanarts.customexception.DAOException;
 import com.fssa.zanarts.customexception.ProductExpection;
 import com.fssa.zanarts.enumclass.Types;
 import com.fssa.zanarts.model.Dimension;
@@ -61,6 +63,10 @@ public class AddProduct extends HttpServlet {
 		String width = request.getParameter("producttWidth");
 		String height = request.getParameter("producttHeight");
 		String artistname = request.getParameter("artistName");
+		HttpSession session = request.getSession();
+		System.out.println("tytg" +session.getAttribute("LoggedUser"));
+		String emailid=(String) session.getAttribute("LoggedUser");
+		
 		System.out.println(Description);
 
 		ProductService product = new ProductService();
@@ -74,12 +80,18 @@ public class AddProduct extends HttpServlet {
 		product1.setCategory(Types.valueToEnumMapping(category));
 		product1.setSize(dm);
 		product1.setProductDescription(Description);
+		product1.setUserId(emailid);
 		product1.setUrl(url);
 
 		System.out.println(product1);
 
 		try {
-			product.addProduct(product1);
+			try {
+				product.addProduct(product1);
+			} catch (DAOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			request.setAttribute("Art Ready to upload", product1.getname() + "Art Ready to upload");
 			rd = request.getRequestDispatcher("Check");

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USerlogin1</title>
+    <link rel="stylesheet" href="../asset/css/login1.css">
+</head>
+
+<body>
+
+    <!--  -->
+
+    <img src="../asset/images/login1back.jpg" width="1200px" height="890px" alt="">
+
+    <fieldset>
+        <legend></legend>
+     
+        <div class="head1"> 
+        <img src="../asset/images/logo1.png" alt="">
+    </div>
+         
+       <div class="head2">
+        <form action=""> 
+       
+        <h3>User Sign up</h3>
+        <br>
+<br>
+         Frist  name <input type="Usernmae,email" id="username" placeholder=" Fristname">
+         <br>
+<br>
+        Last name <input type="Usernmae,email" id="hello" placeholder="Last name">
+         <br>
+<br>
+          Create New Password <input type="Password" id="dot1" placeholder="enter your password">
+         <br>
+<br>
+          Re-enter Password <input type="Password" id="dot2" placeholder="enter your password">
+         <br>
+<br>
+         mobile number <input type="text" id="dot3" placeholder="Enter your 10 digit number">
+         <br>
+<br>
+
+         <input type="checkbox" name="" id="dot4">save your password
+         <br>
+<br>
+        </form>
+
+          <span>
+ <button>
+  <a href="" id="submit" onclick="getUserCret()"> Login </a>
+</button> 
+</span>
+          <br>
+<br>
+          
+        </div>
+       </fieldset>
+
+       <script>
+        function getUserCret(){
+            const first_Name = document.getElementById("username").value;
+            const last_Name=  document.getElementById("hello").value;
+            const Password= document.getElementById("dot1").value;
+            const Re_Password= document.getElementById("dot2").value;
+            const number=document.getElementById("dot3").value;
+ 
+           const user_detail = {};
+         //    const user_List = [];
+
+            user_detail.first_Name= first_Name,
+            user_detail.last_Name= last_Name,
+            user_detail.Password =Password,
+            user_detail.Re_Password =Re_Password,
+            user_detail.number =number;
+
+            console.log(user_detail);
+
+            // user_List.push(user_detail);
+
+            // localStorage.setItem("user",JSON.stringify(user_List));
+            
+         const record= JSON.parse(localStorage.getItem('users')) || [];  //object
+
+         record.push(user_detail);
+
+         localStorage.setItem('users', JSON.stringify(record));
+ 
+        }
+          
+        // store multiple value in localstorage
+
+        // getUserCret()
+        </script>
+    
+</body>
+</html>

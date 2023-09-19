@@ -57,22 +57,25 @@
 			<img src=https://iili.io/HyWWlUu.png width="200px" alt="">
 
 		</div>
-
+		
+		
+		<h3 id="emailid" style="color: white"><%=session.getAttribute("userEmail") %></h3>
+		
 	</div>
 
 	<div class="nav">
 
 		<div class="nav1">
 			<ul>
-				<li><a href="../pages/explore.html">Explore</a></li>
+				<li><a href="explore.jsp">Explore</a></li>
 
-				<li><a href="../account.html">Profile</a></li>
+				<li><a href="<%=request.getContextPath()%>/account.jsp">Profile</a></li>
 
 				<form action="Check" method="GET">
 					<button type="submit" id="but_ion" value="submit">Get All
 						Products</button>
 				</form>
-				<li><a href="../pages/findservice,.html">Find service</a></li>
+				<li><a href="findservice.jsp">Find service</a></li>
 
 			</ul>
 

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="assets/css/cart1.css" />
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="../assests/images/Picsart_22-12-05_14-49-34-612.png"
+				alt="LOGO" />
+		</div>
+		<div class="nav">
+			<a href="../index.html">Home</a> <a href="plant.html">Plants</a> <a
+				href="seeds.html">Seeds</a> <a href="blog.html">Blog</a> <a
+				href="login.html" id="log"><img id="log"
+				src="../assests/images/Untitled_design-removebg-preview.png" alt=""
+				LOGIN /><span id="login_title">Login/signup</span></a> <a
+				id="profile_logo" href="/pages/profile.html"><img
+				id="profile_logo" src="/assests/images/girl.png"></a> <a id="cart"
+				href="#"><img id="cart" src="../assests/images/cart logo.png"
+				alt="cart" /></a>
+		</div>
+	</header>
+	<div class="center_content">
+		<div class="left_content" id="content">
+			<h1>Shopping Cart</h1>
+			<!--
+    <div class="product" id="product_details">
+      <div class="product_img">
+      <img src="/assests/images/beanseed_2.jpg" alt="img">
+    </div>
+      <div class="details">
+      <h4 id="title">Bean Seeds</h4>
+      <div class="adding">
+      <img src="/assests/images/minus.png">
+      <p>1</p>
+      <img src="/assests/images/add.png">
+    </div>
+      <h5 id="ruppees">₹450</h5>
+      <img id="remove_cart" src="/assests/images/multiply-mathematical-sign.png">
+    </div>
+    </div>  -->
+			<!-- <hr>
+    <div class="product">
+      <div class="product_img">
+      <img src="/assests/images/beanseed_2.jpg" alt="img">
+    </div>
+      <div class="details">
+      <h4 id="title">Bean Seeds</h4>
+      <div class="adding">
+      <img src="/assests/images/minus.png">
+      <p>2</p>
+      <img src="/assests/images/add.png">
+    </div>
+      <h5 id="ruppees">₹450</h5>
+      <img id="remove_cart" src="/assests/images/multiply-mathematical-sign.png">
+    </div>
+    </div> -->
+		</div>
+		<div class="right_content">
+			<div class="right_content_1">
+				<h2 id="summary">Summary</h2>
+				<!-- <div class="total_products">
+      <h5 id="product">Product</h5>
+      <h5 id="quantity">Quantity</h5>
+      <h5 id="price">Price</h5>
+    </div> -->
+				<!-- <div class="values">
+      <p id="product">Dieffenbranchia</p>
+      <p id="quantity">3x100</p>
+      <p id="price">300</p> -->
+				<!-- <p>300</p> -->
+				<h4>Your order</h4>
+				<div class="product_order_details"></div>
+				<!-- <h3><img src="../assests/images/blacktomato.jpg" alt="images">
+        Hibiscus</h3>
+        <div class="multiply">
+          <span class="quantity">3 x</span>
+          <span class="actual_price">100</span>
+        </div>
+        <p class="total_price">300</p>
+      </div> -->
+				<!-- <div class="product_order_detail">
+        <h3>Hibiscus</h3>
+        <div class="multiply">
+          <span class="quantity">3 x</span>
+          <span class="actual_price">100</span>
+        </div>
+        <p class="total_price">300</p>
+      </div> -->
+				<div class="right_content_2">
+					<div class="product_order_detail">
+						<h3 class="sub_total">SubTotal</h3>
+						<h3 class="subtotal_value">0</h3>
+					</div>
+					<div class="product_order_detail">
+						<h3 class="shipping">Shipping</h3>
+						<h3 class="shipping_value">0</h3>
+					</div>
+					<hr id="total_hr">
+					<div class="product_order_detail">
+						<h3 class="total">Total</h3>
+						<h3 class="total_value">0</h3>
+					</div>
+					<a id="proceed_button"><button>Proceed to Checkout</button></a>
+					<!-- <div class="total_calculation">
+      <p>
+        <span>Total</span>
+        <span id="total_in_num">340+450=790</span>
+      </p>
+    </div> -->
+				</div>
+			</div>
+		</div>
+		<!-- <div class="total">
+        <p>
+          <span>Number of Items</span>
+          <span>2</span>
+        </p>
+        <p>
+          <span>Total</span>
+          <span>340+450=790</span>
+        </p>
+        <a href="payments/payment.html">Proceed to Checkout</a>
+      </div>
+    </div> -->
+		<!--
+    <footer>
+      <div class="foot1">
+        <h1>Suggestions</h1>
+        <textarea placeholder="leave a comment..."></textarea><br />
+        <button>Submit</button>
+      </div>
+      <div class="foot2">
+        <img
+          id="footlogo"
+          src="../assests/images/Picsart_22-12-05_14-49-34-612.png"
+          alt="footerlogo"
+        />
+        <div class="footernav">
+          <a href="./index.html">Home</a>
+          <a href="./pages/plant.html">plants</a>
+          <a href="./seeds.html">Seeds</a>
+          <a href="#">Orders</a>
+        </div>
+        <div class="contact">
+          <h2>Contacts</h2>
+          <p>+91-9876543210</p>
+          <p>veeblooms@gmail.com</p>
+        </div>
+        <div class="address">
+          <h2>Address</h2>
+          <p>No12, gandhi street</p>
+          <p>urapakkam,</p>
+          <p>Chennai</p>
+        </div>
+      </div>
+    </footer> -->
+		<script src="/assests/js/model.js"> </script>
+		<script>
+      const login_titles = document.getElementById("login_title");
+      const login_logo = document.getElementById("log");
+      const profile_logo = document.getElementById("profile_logo")
+      const users = JSON.parse(localStorage.getItem("arr"))
+      const active_user = localStorage.getItem("profile")
+      let ac_user;
+      users.forEach(e => {
+        if (active_user == e.email) {
+          ac_user = e
+        }
+      })
+      let proceed_button=document.getElementById("proceed_button")
+      proceed_button.addEventListener("click",e=>{
+        console.log(ac_user.cart.length);
+        if(ac_user.cart.length>0){
+          window.location.href ="./payments/payment2.html"
+        }
+        else{
+          alert("Add products in the cart, before proceeding the payment page")
+        }
+      })
+      // active user is stored in ac_user//
+      const cart_data = ac_user.cart
+      console.log(cart_data)
+      const user = localStorage.getItem("profile")
+      console.log(user,"uytfd")
+      cart_data.find(e => {
+        if (e.user_cart == user) {
+          cart(e)
+        }
+      })
+      for (let i = 0; i < cart_data.length; i++) {
+        cart(cart_data[i])
+      }
+      function cart(obj) {
+        const content = document.getElementById("content");
+        content.innerHTML +=
+          `
+    <div class="product" id="product_details">
+      <div class="product_img">
+        <img src="${obj.plant_image}" alt="img">
+      </div>
+      <div class="details">
+        <h4 id="title">${obj.plant_name}</h4>
+        <div class="adding">
+          <img src="/assests/images/minus.png" class="minus">
+          <p class="quantity">${obj.plantquantity}</p>
+          <img src="/assests/images/add.png" class="add" >
+        </div>
+        <h5 class="price">${obj.plant_price * obj.plantquantity}</h5>
+        <img class="remove_cart" src="/assests/images/multiply-mathematical-sign.png">
+      </div>
+    </div>
+    <hr id="hr_plants">`
+      }
+      const totalCount = document.querySelectorAll(".quantity");
+      const add_quantity = document.querySelectorAll(".add");
+      const minus_quantity = document.querySelectorAll(".minus");
+      const remove_cart = document.querySelectorAll(".remove_cart")
+      const plant_price = document.querySelectorAll(".price")
+      const subtotal = document.querySelectorAll(".sub_total")
+      const shipping = document.querySelectorAll(".shipping")
+      const sub_total_value = document.querySelector(".subtotal_value")
+      const shipping_value = document.querySelectorAll(".shipping_value")
+      const total_value = document.querySelector(".total_value")
+      const count = 1
+      totalCount.innerHTML = count;
+      //  adding quantity to the product------
+      add_quantity.forEach((e, index) => {
+        e.addEventListener("click", element => {
+          let count = Number(totalCount[index].innerHTML)
+          count += 1
+          const total_price = Number(cart_data[index].plant_price) * count
+          plant_price[index].innerHTML = total_price
+          totalCount[index].innerHTML = count
+          cart_data[index].plantquantity = count
+          cart_data[index].plant_total_price = Number(cart_data[index].plant_price) * count
+          // localStorage.setItem("cart",JSON.stringify(cart_data))
+          // location.reload()
+          saveinlocal()
+          summary()
+          summaryView()
+        })
+      })
+      //  minusing quantity to the product------
+      minus_quantity.forEach((e, index) => {
+        e.addEventListener("click", element => {
+          let count = Number(totalCount[index].innerHTML)
+          if (count > 1) {
+            count -= 1
+            const total_price = Number(cart_data[index].plant_price) * count
+            plant_price[index].innerHTML = total_price
+            totalCount[index].innerHTML = count
+            cart_data[index].plantquantity = count
+            cart_data[index].plant_total_price = Number(cart_data[index].plant_price) * count
+            // localStorage.setItem("cart",JSON.stringify(cart_data))
+            // location.reload()
+            saveinlocal()
+            summaryView()
+            summary()
+          }
+          else {
+            alert("Wrong")
+          }
+        })
+      })
+      //  removing quantity to the product------
+      remove_cart.forEach((e, index) => {
+        e.addEventListener("click", element => {
+          cart_data.splice(index, 1)
+          // localStorage.setItem("cart",JSON.stringify(cart_data))
+          // location.reload()
+          saveinlocal()
+          location.reload()
+        })
+      })
+      function saveinlocal() {
+        ac_user.cart = cart_data
+        users.forEach(e => {
+          if (active_user == e.email) {
+            e = ac_user
+          }
+        })
+        localStorage.setItem("arr", JSON.stringify(users));
+      }
+      console.log(cart_data);
+      //  Summary function ==  For summarising the quantity x actual price
+      function summary() {
+        console.log("gfd");
+        const product_order_details = document.querySelector(".product_order_details")
+        let div_to_create = ""
+        cart_data.forEach(e => {
+          div_to_create += `
+  <div class="product_order_detail">
+        <h3><img src=${e.plant_image} alt="images">
+        ${e.plant_name}</h3>
+        <div class="multiply">
+          <span class="quantity">${e.plantquantity} x</span>
+          <span class="actual_price">${e.plant_price}</span>
+        </div>
+        <p class="total_price">${e.plantquantity * e.plant_price}</p>
+      </div>
+  `
+        })
+        product_order_details.innerHTML = div_to_create
+      }
+      function summaryView() {
+        let total_cart_value = 0
+        cart_data.forEach(e => {
+          total_cart_value += Number(e.plant_total_price)
+        })
+        sub_total_value.innerHTML = total_cart_value ?? 0
+        total_value.innerHTML = total_cart_value ?? 0
+      }
+      summary()
+      summaryView()
+    </script>
+</body>
+</html>
