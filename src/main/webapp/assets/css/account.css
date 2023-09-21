@@ -36,7 +36,7 @@ header {
 #search {
 	font-family: 'Poppins', sans-serif;
 	outline: none;
-	display:none;
+	display: none;
 }
 
 .input i {
@@ -197,6 +197,10 @@ img {
 	background-color: white;
 }
 
+#sub_butnn {
+	cursor: pointer;
+}
+
 .back_ground2 {
 	padding-right: 30px;
 	padding-left: 30px;
@@ -213,7 +217,7 @@ img {
 	margin-left: 60px;
 }
 
-#username, #gender, #phone, #email,#role, #country, #zip-code, #des {
+#username, #gender, #phone, #email, #role, #country, #zip-code, #des {
 	padding: 10px 0;
 	padding-left: 30px;
 	text-align: center;
@@ -263,4 +267,12 @@ button {
 #image_profile {
 	height: 170px;
 	width: 240px;
+}
+
+#edit_id {
+	cursor: pointer;
+}
+
+#update_buttton button {
+	background-color: black;
 }

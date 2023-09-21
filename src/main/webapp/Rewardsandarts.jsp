@@ -8,367 +8,201 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/artist_pro.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="assets/css/artist_pro.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
+      <%@ include file="commonSession.jsp" %>
+	<header>
+
+		<div class="logo">
+			<img src="assets/images/new_logo plain.png" width="150px"
+				alt="no error">
+		</div>
+
+		<div class="input">
+			<input type="text" name="search_bar" id="search"
+				placeholder="What do you like today???"> <i
+				class="fa fa-search"></i>
+		</div>
+
+		<div class="side1_nav">
+			<ul>
+
+			</ul>
+
+		</div>
+
+	</header>
+	<!-- hr line  -->
+	<span id="hr1"> <br>
+		<hr> <br>
+	</span>
+
+	<div class="header_prt1">
+		<ul>
+			<li><a href="/pages/home.jsp">Home |</a></li>
+			<li><a href="/pages/categories.jsp">Products |</a></li>
+			<li><a href="findservice.jsp">Find Service </a></li>
+
+		</ul>
+	</div>
+	<span id="hr2"> <br>
+		<hr>
+	</span>
+
+	<!-- background_image -->
+
+	<!-- main tag for whole content -->
+	<div class="container">
+		<h2>Your Uploaded art</h2>
+
+		<ul class="cards">
+			<%
+			List<Product> productList = (List<Product>) request.getAttribute("userProductList");
+			if (productList != null) {
+				for (Product ele : productList) {
+			%>
+
+			<li class="card">
+				<div>
+					<a href="productDetails.jsp?id=<%=ele.getId()%>"> <img
+						class="round" src="<%=ele.getImageurl()%>" width="300px"
+						alt="user" />
+					</a>
+					<h3 class="card-title" id="card-title">isac</h3>
+					<div class="card-content">
+						<p>
+							"<%=ele.getProductDescription()%>"
+						</p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button id="openPopupBtn">
+
+						<form id="do" method="post"
+							action="DeleteProduct?id=<%=ele.getId()%>">
+							<a href="#" class="open" data-id="<%=ele.getId()%>"
+								data-productname="<%=ele.getname()%>"
+								data-productDes="<%=ele.getProductDescription()%>"
+								data-url="<%=ele.getImageurl()%>"
+								data-artistname="<%=ele.getArtistname()%>"
+								data-catg="<%=ele.getCategory()%>" data-pr="<%=ele.getPrice()%>"
+								data-Width="<%=ele.getSize().getWidth()%>"
+								data-Heigth="<%=ele.getSize().getHeight()%>">Edit </a>
+					</button>
+					<button id="sub_but" type="submit">Delete</button>
+				</div>
+			</li>
+			</form>
+			<%
+			}
+			} else {
+			%>
+			<h2>Not yet upload any arts!!!</h2>
+			<%
+			}
+			%>
+		</ul>
+	</div>
+
+	<!-- pop up  -->
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<span class="close" id="closePopupBtn">&times;</span>
+
+
+			<form id="UpdateProduct" action="UpdateProduct" method="post">
+				<label for="productId"> <input type=text id="productId"
+					name="productid1" style="display: none;"></label> <br> <label
+					for="productName">
+					<h3>Name:</h3>
+				</label> <input type="text" id="productName" name="productName1" required>
+				<br> <label for="productDescription">
+					<h3>Description:</h3>
+				</label> <input type="text" id="productDescription"
+					name="productDescription1" required> <br> <label
+					for="productPrice">
+					<h3>Price:</h3>
+				</label> <input type="number" id="productPrice" name="productPrice1"
+					min="0.01" step="0.01" required> <br> <label
+					for="productWidth"><h3>Width:</h3></label> <input type="number"
+					id="productWidth" name="productWidth1" min="1" required> <br>
+				<label for="productHeight">
+					<h3>Height:</h3>
+				</label> <input type="number" id="productHeight" name="productHeight1"
+					min="1" required> <br> <label for="artistName"><h3>Artist
+						Name:</h3></label> <input type="text" id="artistName" name="artistName1"
+					required> <br>
+				<h3>Category:</h3>
+				<label for="Category"><input type="text" id="Ctry"
+					name="Category1"></label> <br>
+				<h3>Url:</h3>
+				<label for="url"><input type="text" id="url"
+					name="producturl"></label> <br>
+
+
+				<button type="submit" id="update_but">Update Product</button>
+			</form>
+		</div>
+	</div>
+
+	<script src="assets/js/product.js"></script>
+
+	<script>
+	
+	function update(productObj){
+		
+		 document.getElementById("productName").value=productObj.name;
+		 document.getElementById("productDescription").value=productObj.Des;
+		 document.getElementById("productPrice").value=productObj.price;
+		 document.getElementById("productWidth").value=productObj.Width;
+		 document.getElementById("productHeight").value=productObj.Heigth;
+		 document.getElementById("artistName").value=productObj.Artistname;
+		 document.getElementById("Ctry").value=productObj.catg;
+		 document.getElementById("url").value=productObj.Url;
+		 document.getElementById("productId").value=productObj.id;
+		 
+	}
+	
+	
+	const updateProduct= document.querySelectorAll(".open");
+	updateProduct.forEach(product => {
+		product.addEventListener("click", () =>{
+			
+			const productObj={
+					id: product.getAttribute("data-id"),
+					name: product.getAttribute("data-productname"),
+					Des: product.getAttribute("data-productDes"),
+					price :product.getAttribute("data-pr"),
+					Width :product.getAttribute("data-Width"),
+					Heigth :product.getAttribute("data-Heigth"),
+					Artistname:product.getAttribute("data-artistname"),
+					catg :product.getAttribute("data-catg"),
+					Url :product.getAttribute("data-url")
+			 
+			}
+			console.log(product.getAttribute("data-id"))
+			console.log(product.getAttribute("data-url"))
+			console.log(product.getAttribute("data-Heigth"))
+			update(productObj);
+		})
+	});
+	</script>
 
-    <header>
-
-        <div class="logo">
-            <img src="assets/images/new_logo plain.png" width="150px" alt="no error">
-        </div>
-
-        <div class="input">
-            <input type="text" name="search_bar" id="search" placeholder="What do you like today???">
- <i
-                class="fa fa-search"></i>
-        </div>
-
-        <div class="side1_nav">
-            <ul>
-
-            </ul>
-
-        </div>
-
-    </header>
-    <!-- hr line  -->
-    <span id="hr1">
-        <br>
-        <hr>
-        <br>
-    </span>
-
-    <div class="header_prt1">
-        <ul>
-            <li>
-<a href="/pages/home.jsp">Home |</a>
-</li>
-            <li>
-<a href="/pages/categories.jsp">Products |</a>
-</li>
-            <li>
-<a href="findservice.jsp">Find Service </a>
-</li>
-
-        </ul>
-    </div>
-    <span id="hr2">
-        <br>
-        <hr>
-    </span>
-
-    <!-- background_image -->
-
-    <!-- main tag for whole content -->
-    <div class="container">
-        <h2>Your Uploaded art</h2>
-        
-        <ul class="cards">
-        <%
-		List<Product> productList = (List<Product>) request.getAttribute("productList");
-		if (productList != null) {
-			for (Product ele : productList) {
-		%>
-            <li class="card">
-                <div>
-                    <img class="round" src="<%=ele.getImageurl()%>" alt="user" />
-                    <h3 class="card-title" id="card-title">isac</h3>
-                    <div class="card-content">
-                        <p>"<%=ele.getProductDescription()%>"</p>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button class="primary"><a href="productDetails.jsp?id=<%=ele.getId()%>">
-                        Edit
-                        </a>
-                    </button>
-                    <button class="primary ghost">
-                        Delete
-                    </button>
-                </div>
-                </li> 
-                 </form>
-        <%
-		}
-		} else {
-		%>
-		<h2>Empty</h2>
-		<%
-		}
-		%> 
-        </ul>
-    </div>
-
-    <!-- pop up  -->
-    <div class="input_box" id="input_box">
-        <i class="fa-solid fa-xmark" id="close" style="color: #fc0303;"></i>
-        <form id="formbtn" action="">
-
-            <!-- <input type="text" name="title_name" id="title_name"> -->
-            <h1 id="title_name1"></h1>
-            <br>
-            <h3>Descrpiton:</h3>
-            <textarea rows="10" cols="50" name="comment" form="usrform" id="des"
-                placeholder="Add your description in maximum 20 character" required></textarea>
-            <br>
-            <h3> Sold By:</h3>
-            <input type="text" name="sold_by" id="sold_by">
-            <br>
-            <h3> Price:</h3>
-            <input type="text" name="price" id="price">
-
-            <br>
-            <h3>Width and height(mm)</h3>
-
-            <input type="text" name="width" id="width">
-             <br><br>
-            <button type="submit" id="savebtn">Save</button>
-
-       
-    </div>
-
-    <script>        // forloop
-
-        const profile_page = JSON.parse(localStorage.getItem("upload"))
-
-        let showedProduct;
-        showedProduct = profile_page.filter((data) => {
-    if (data.status == true) {
-        return true
-    }
-    
-        return false
-    
-})
-        const container = document.createElement("div");
-        container.setAttribute("class", "container");
-
-        const h2 = document.createElement("h2");
-        h2.setAttribute("id", "h2_tag");
-        h2.innerText = "Your Uploaded art"
-        container.append(h2);
-
-        const uli = document.createElement("ul");
-        uli.setAttribute("class", "cards");
-        console.log(uli);
-        const ul = document.querySelector(".cards")
-       
-        const request_email_arr=JSON.parse(localStorage.getItem("profile"));
-         let user_mail=request_email_arr["email"];
-
-         console.log(user_mail)
-        // console.log(showedProduct,"ytrfd");
-        for (let i = 0; i < showedProduct.length; i++) {
-            if(showedProduct[i].user_email==user_mail){
-
-            ul.innerHTML += `<li class="card">
-                <div class="image_card">
-                    <img class="round" src=${showedProduct[i].img} width="200px" alt="user" />
-                    <h3  id="card-title">
-                        ${showedProduct[i].title_name}
-                        </h3>
-                    <div class="card-content">
-                        <p>Rs:  ${showedProduct[i].pr}</p>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button value="${showedProduct[i].title_name}" class="primary">
-                        Edit
-                    </button>
-                    <button value="${showedProduct[i].title_name}"class="primary_ghost">      
-                        Delete
-                    </button>
-                </div>
-                </li>`
-            }
-
-        }
-        // let li = document.createElement("li");
-        // li.setAttribute("class", "card")
-        // uli.append(li);
-
-        // let empty_div = document.createElement("div");
-        // li.append(empty_div);
-
-        // let image = document.querySelector("img");
-        // image.setAttribute("class", "round")
-        // image.setAttribute("src", showedProduct[i]["img"]);
-        // image.setAttribute("alt", "Image loading");
-        // empty_div.append(image);
-
-        // let card_title = document.createElement("h3");
-        // card_title.setAttribute("id", "card-title");
-        // card_title.innerText = showedProduct[i]["title_name"]
-        // empty_div.append(card_title);
-
-        // let card_content = document.createElement("div");
-        // card_content.setAttribute("class", "card-content")
-        // empty_div.append(card_content);
-
-        // let para = document.createElement("p");
-        // para.innerText = showedProduct[i]["Art_title"];
-        // card_content.append(para);
-
-        // let div_button = document.createElement("div");
-        // div_button.setAttribute("class", "buttons")
-        // li.append(div_button);
-
-        // let button = document.createElement("button");
-        // button.setAttribute("class", "primary");
-        // button.setAttribute("value",showedProduct[i]["title_name"])
-        // button.innerText = "Edit"
-        // div_button.append(button);
-
-        // let button1 = document.createElement("button");
-        // button1.setAttribute("class", "primary_ghost");
-        // button1.setAttribute("value",showedProduct[i]["title_name"]);
-        // button1.innerText = "Delete"
-        // div_button.append(button1);
-        // container.append(uli);
-        // document.querySelector("body").append(container);
-
-        const input_box = document.getElementsByClassName("input_box")
-
-        console.log(input_box)
-
-        const card_name = document.getElementById("card-title").innerText
-        console.log(card_name)
-        // console.log( profile_page[0]["title_name"])
-
-        //view
-        const des = document.getElementById("des");
-        const sold_by = document.getElementById("sold_by");
-        const price = document.getElementById("price");
-        const width = document.getElementById("width");
-
-        const savebtn = document.getElementById("savebtn")
-        const uploadproducts = JSON.parse(localStorage.getItem("upload"))
-        // uploadproducts.find((data)=>{
-
-        // })
-        let saveButton;
-
-        const Edit = document.querySelectorAll(".primary");
-
-        Edit.forEach(btn => {
-
-            let buttonValue;
-            buttonValue = btn.value
-            btn.addEventListener("click", (e) => {
-                // console.log("jihgvfg");
-
-                profile_page.find(obj => {
-                    // console.log(obj["title_name"])
-                    // console.log(card_name)
-                    // console.log("fal", card_name, obj["title_name"].trim());
-
-                    if (obj.title_name.trim() == card_name) {
-                        const head = document.getElementById("title_name1")
-                        head.innerText = card_name
-                        // console.log("sure");
-
-                        input_box[0].style.display = "block"
-                         
-                        // body.style.filter = "blur(6px)"
-                    }
-                })
-                    // view
-                    for (let i = 0; i < uploadproducts.length; i++) {
-
-                        if (buttonValue == uploadproducts[i].title_name) {
-
-                            sold_by.value = uploadproducts[i].artist_name;
-                            des.value = uploadproducts[i].descr;
-                            price.value = uploadproducts[i].pr;
-                            width.value = uploadproducts[i].size_by;
-                            savebtn.value = uploadproducts[i].title_name
-                        }
-                    }
-               
-            })
-        })
-
-        savebtn.addEventListener(("click"), () => {
-            const Savedbtn = savebtn.value;
-            // alert(Savedbtn)
-
-            for (let i = 0; i < uploadproducts.length; i++) {
-
-                if (Savedbtn == uploadproducts[i].title_name) {
-                    uploadproducts[i].artist_name = sold_by.value;
-                    uploadproducts[i].descr = des.value;
-                    uploadproducts[i].pr = price.value;
-                    uploadproducts[i].size_by = width.value;
-
-                    localStorage.setItem("upload", JSON.stringify(uploadproducts))
-
-                }
-            }
-
-        })
-
-        const close_tab = document.getElementById("close");
-        close_tab.addEventListener("click", e => {
-
-            input_box[0].style.display = "none";
-
-        })
-
-        // delete 
-
-        const deletedd = document.querySelectorAll(".primary_ghost");
-
-        deletedd.forEach((e, index) => {
-            e.addEventListener("click", () => {
-                // alert("ok")
-                console.log("hiiii")
-
-                const deletevalue = e.value
-                uploadproducts.find((data) => {
-                    console.log(deletevalue, data.title_name, deletevalue.length, data.title_name.length, deletevalue == data.title_name);
-
-                    if (deletevalue == data.title_name) {
-                        data.status = false
-                        console.log("hi")
-                        // alert("ok")
-
-                    }
-
-                    localStorage.setItem("upload", JSON.stringify(uploadproducts))
-                })
-
-            })
-        })
-
-        //search feature
-
-        const search = document.getElementById("search");
-        search.addEventListener("keyup", (e) => {
-            const words = e.target.value.toLowerCase();
-            const letter = document.querySelectorAll(".image_card");
-            letter.forEach((element) => {
-                const content = element.children[1].textContent.toLowerCase();
-                if (content.includes(words)) {
-                    element.style.display = "block";
-                   
-                } else {
-                    element.style.display = "none";
-                }
-            });
-        });
-    </script>
 
 </body>
 

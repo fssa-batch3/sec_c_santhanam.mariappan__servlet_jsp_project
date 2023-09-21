@@ -88,7 +88,7 @@ public class UpdateProduct extends HttpServlet {
 		}
 
 		response.getWriter().write("product success");
-		response.sendRedirect("Check");
+		response.sendRedirect("ArtistProduct");
 
 	}
 

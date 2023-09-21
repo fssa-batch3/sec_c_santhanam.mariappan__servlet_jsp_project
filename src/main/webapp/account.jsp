@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="com.fssa.zanarts.dao.UserDao"%>
+<%@page import="com.fssa.zanarts.service.UserService"%>
 <%@page import="com.fssa.zanarts.logger.Logger"%>
 <html lang="en">
 
@@ -17,22 +19,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
 	rel="stylesheet">
 <%@ page import="com.fssa.zanarts.model.*"%>
+
+ 
 </head>
 
 <body>
-
+      <%@ include file="commonSession.jsp" %>
 	<%
-      User user=(User) session.getAttribute("User"); 
+	String email = (String) request.getSession(false).getAttribute("User");
+	User user = UserDao.getUserByEmail(email);
+	System.out.println(user);
 	%>
 
 	<!-- header -->
 
 	<header>
 
+
+
 		<div class="logo">
 			<img src="assets/images/new_logo plain.png" width="100px"
 				alt="no error">
 		</div>
+
+
 
 		<div class="input">
 			<input type="text" name="search_bar" id="search"
@@ -40,21 +50,24 @@
 			</button>
 		</div>
 
+
+
 		<div class="side1_nav">
 			<ul>
-
-
 				<li><img
 					src="assets/images/profile_picture_user_icon_153847.png"
 					width="30px" alt="no error"></li>
-
 			</ul>
 
 		</div>
 
+
 	</header>
 
+
 	<!-- hr line  -->
+
+
 	<span id="hr1">
 		<hr>
 	</span>
@@ -74,106 +87,97 @@
 	<!-- main -->
 
 	<!--  display flex div  -->
-	<form id="forms" action="ProfileUpdate" method="post">
+
 	<div class="back_ground">
 
 		<div class="back_ground2">
 
-			 
 
-				<div class="display2">
-					<!-- <i class="fa-solid fa-plus" style="color: aliceblue;"></i>/ -->
 
-					<h2>Profile</h2>
-					<br> <img src="assets/images/profile.png" alt="no error"
-						id="image_profile" width="300px"> <br>
+			<div class="display2">
 
-					<!-- <input type="file" name="file" id="file"> -->
+
+				<h2>Profile</h2>
+				<br> <img src="assets/images/profile.png" alt="no error"
+					id="image_profile" width="300px"> <br> <br> <br>
+
+				<div class="btn">
 
 					<br> <br>
-
-					<div class="btn">
-
-						<button id="save">Save</button>
-						<br> <br>
-						<button id="edit">Edit</button>
-					</div>
-					<div class="log">
-						<!-- <button  >Logout</button> -->
-						<i class="fa-solid fa-right-from-bracket" onclick="logout()"
-							style="color: #ffffff;"></i>
-					</div>
-
-
+					<button id="edit_id">Edit</button>
 				</div>
+				<div class="log">
+					<form action="<%=request.getContextPath()%>/LogoutServlet"
+						method="get">
+						<button>Logout</button>
+					</form>
+				</div>
+
+
+			</div>
 		</div>
+
+
 
 		<div class="display">
 
 
 			<div class="none">
-				<div class="display1">
 
-					<h3>User name:</h3>
-					<input type="text" name="firstname" id="username"
-						value="<%=user.getUserName()%>" disabled
-						pattern="^[A-Za-z0-9_]{1,32}$"
-						title="This contain have (Upper case && Lowercase)"> <br>
-					<br> <br>
-					<h3>Email</h3>
-					<input type="email" name="email" id="email"
-						value="<%=user.getEmail()%>" disabled> <br> <br>
-					<br>
+				<form id="forms" action="ProfileUpdate" method="post">
+					<button id="update_buttton">update</button>
+					<div class="display1">
 
-					<h3>Phone number</h3>
+						<h3>User name:</h3>
+						<input type="text" name="firstname" id="username"
+							value="<%=user.getUserName()%>" pattern="^[A-Za-z0-9_]{1,32}$"
+							title="This contain have (Upper case && Lowercase)" disabled>
+						<br> <br> <br>
+						<h3>Email</h3>
+						<input type="email" name="email" id="email"
+							value="<%=user.getEmail()%>" disabled> <br> <br>
+						<br>
 
-					<input type="tel" name="phone" id="phone" disabled required
-						pattern="[0-9]{10}" value="<%=user.getPhoneNumber()%>"
-						title="This contain have Number only"> <br> <br>
-					<br>
+						<h3>Phone number</h3>
 
-					<h3>Role</h3>
-					<input type="role" name="role" id="role" disabled required
-						pattern="[0-9]{10}"
-						value="<%=user.getRole().getValue().toString()%>"
-						title="This contain have Number only">
+						<input type="tel" name="phone" id="phone" required
+							pattern="[0-9]{10}" value="<%=user.getPhoneNumber()%>"
+							title="This contain have Number only" disabled> <br>
+						<br> <br>
 
-					</form>
-
-					<!-- <h3>Zip-code</h3> <input type="text" name="zip-code" id="zip-code" pattern="{0-6}" disabled -->
-
-					<br> <br> <br>
+						<h3>Role</h3>
+						<input type="role" name="role" id="role" disabled required
+							pattern="[0-9]{10}"
+							value="<%=user.getRole().getValue().toString()%>"
+							title="This contain have Number only">
+				</form>
+				<br> <br> <br>
 
 
-				</div>
 
 				<div class="about">
 					<%
-					String name = (String) session.getAttribute("User");
-					String role = (String) session.getAttribute("role");
+					String name = (String) request.getSession(false).getAttribute("userName");
+					String role = (String) request.getSession(false).getAttribute("role");
 
-					out.print("Hello " + name);
-					if (name != null && role.equals("ARTIST")) {
+					if (role.equals("ARTIST")) {
 					%>
 					<div class="dic">
-
 						<div class="dic1">
-							<!-- <a href="asset/css/artist1.html"><h1>Orders</h1></a> -->
+
 							<h2 id="hi_or">Orders</h2>
 							<a href="artist1.jsp"> <img
 								src="assets/images/order_logo.png" width="80px" alt="">
 							</a>
 						</div>
-						<!-- <button id="your_art"> <a href="/asset/css/Rewardsandarts.html"> Your Uploaded arts</a> -->
+
 						<div class="dic2">
 							<h2>Your Arts</h2>
-							<a href="Rewardsandarts.jsp"> <img
+							<a href="<%=request.getContextPath()%>/ArtistProduct"> <img
 								src="assets/images/art_lo.png" width="80px" alt="">
 							</a>
 						</div>
 					</div>
-					<!-- </button> -->
-
 				</div>
 				<%
 				} else {
@@ -203,107 +207,7 @@
 		</div>
 	</div>
 
-	<script>
-        const form = document.getElementById("save")
-        form.addEventListener("click", function (e) {
-            e.preventDefault();
-            save();
-        })
-
-        let arr = JSON.parse(localStorage.getItem("profile"));
-
-        document.getElementById("username").value = arr["user"];
-        document.getElementById("email").value = arr["email"];
-        document.getElementById("phone").value = arr["mobile"];
-        document.getElementById("gender").value = arr["gender"];
-        document.getElementById("des").value = arr["about"];
-        document.getElementById("country").value = arr["country"]
-
-        let Edit = document.getElementById("edit")
-        console.log(Edit)
-        Edit.addEventListener("click", (e) => {
-            e.preventDefault();
-            // alert("djidjid")
-            console.log("clicked")
-            document.getElementById("username").removeAttribute("disabled");
-            document.getElementById("gender").removeAttribute("disabled");
-            document.getElementById("phone").removeAttribute("disabled");
-            document.getElementById("country").removeAttribute("disabled");
-            document.getElementById("des").removeAttribute("disabled");
-
-        })
-
-        function save() {
-
-            document.getElementById("username").setAttribute("disabled", "");
-            document.getElementById("gender").setAttribute("disabled", "");
-            document.getElementById("phone").setAttribute("disabled", "");
-            document.getElementById("country").setAttribute("disabled", "");
-            document.getElementById("des").setAttribute("disabled", "");
-
-            let newdata = JSON.parse(localStorage.getItem("users"));
-
-            const useremail = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
-            let username = document.getElementById("username").value
-            let gender = document.getElementById("gender").value
-            let country = document.getElementById("country").value
-            let about = document.getElementById("des").value
-
-            newdata.find(userobj => {
-                if (userobj["email"] == useremail) {
-                    userobj["user"] = username;
-                    userobj["mobile"] = phone;
-                    userobj["about"] = about;
-                    userobj["gender"] = gender;
-                    userobj["country"] = country
-
-                    console.log(userobj["country"])
-
-                    localStorage.setItem("users", JSON.stringify(newdata))
-                    localStorage.setItem("profile", JSON.stringify(userobj))
-
-                }
-
-            })
-
-        }
-
-        function logout() {
-            let del = JSON.parse(localStorage.getItem("profile"));
-
-            let dele = delete del
-            localStorage.setItem("profile", JSON.stringify(dele))
-            window.location.href = "index.jsp"
-
-
-        let fi = document.getElementById("file")
-
-        let img = document.getElementById("image_profile")
-
-        //this function for change profile picture
-        file.addEventListener('change', function () {
-            const choosedFile = this.files[0];
-            if (choosedFile) {
-                const reader = new FileReader();
-                reader.addEventListener('load', function () {
-                    img.setAttribute('src', reader.result);
-                    //setting image src in localstorage
-                    const profile = JSON.parse(localStorage.getItem("profile"))
-                    profile["profile_picture"] = reader.result
-                    localStorage.setItem("profile", JSON.stringify(profile))
-
-                });
-                reader.readAsDataURL(choosedFile);
-
-            }
-            const profile = JSON.parse(localStorage.getItem("profile"))
-            img.setAttribute("src", profile["profile_picture"])
-
-        })
-
-    </script>
-
+	<script src="<%=request.getContextPath()%>/assets/js/profile.js"></script>
 </body>
 
 </html>

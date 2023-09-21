@@ -31,7 +31,6 @@
 				<div class="but_box">
 
 					<div id="butn"></div>
-
 					<button class="butn_1" type="button" id="butn_1">Register</button>
 					<button class="butn_1" type="button" id="butn_2">Login</button>
 
@@ -45,43 +44,38 @@
 				</div>
 
 
-				<form id="login" class="input_group" method="post" action="<%=request.getContextPath()%>/RegisterServlet">
-					<!-- 
-                    <input type="email" class="input_field" id="log_mail" placeholder="User mail" required>
-                    <input type="text" class="input_field" id="passcode" placeholder="Enter password" required>
-                     <input type="checkbox" class="checkbox"> <span>Save information</span>
-                    <button class="submitbut" id="login_submit"> login</a></button>  -->
-					<h3>Are you a Artist?</h3>
-					<input type="radio" id="Artist" value ="ARTIST" name="fav_language"> <br>
-					<h3>Are you a Buyer?</h3>
-					<input type="radio" id="Buyer" value="BUYER" name="fav_language"> <br>
 
-					<input type="text" class="input_field" id="user_id"
-						placeholder=" Create your User Name" name="user_id" pattern="[A-Za-z]{4,24}"
+				<form id="login" class="input_group" method="post"
+					action="<%=request.getContextPath()%>/RegisterServlet">
+					<h4 id="space">
+						Are you a Artist? <input type="radio" id="Artist" value="ARTIST"
+							name="fav_language"> Are you a Buyer? <input type="radio"
+							id="Buyer" value="BUYER" name="fav_language">
+
+					</h4>
+					<br> <input type="text" class="input_field" id="user_id"
+						placeholder=" Create your User Name" name="user_id"
+						pattern="[A-Za-z]{4,24}"
 						title="usernmae  contain minimum 1 and maximum 24 character">
-						
+
 					<input type="email" class="input_field" id="email"
-						placeholder="Enter your email" name="email" required> 
-						
-						<input
+						placeholder="Enter your email" name="email" required> <input
 						type="password" class="input_field" id="password"
 						placeholder="Create your password" name="password" required
 						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n\s])(?=.*[A-Z])(?=.*[a-z]).*$"
 						title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters and white space character">
-						
-						
+
+
 					<input type="password" class="input_field" id="password1"
 						placeholder="Enter your password"
 						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n\s])(?=.*[A-Z])(?=.*[a-z]).*$"
 						title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters and white space character"
-						required> 
-						
-						<input type="tel" class="input_field"
+						required> <input type="tel" class="input_field"
 						id="mobilenumber" placeholder="Enter your mobile number"
-						pattern="[0-9]{10}" name="mobilenumber" title=" This box only have numbers" required>
+						pattern="[0-9]{10}" name="mobilenumber"
+						title=" This box only have numbers" required> <br>  
+					<br> <br>
 
-					<br>   <br> <br>
-					<!-- <input type="checkbox" class="checkbox" id="Agree"> <span> Agree terms and conditions</span> -->
 					<button type="submit" class="submit_butn">Register</button>
 
 				</form>
@@ -90,11 +84,10 @@
 					method="post">
 
 					<input type="email" class="input_field" id="log_mail"
-						name="log_mail" placeholder="User mail" required> 
-						<input
+						name="log_mail" placeholder="User mail" required> <input
 						type="password" class="input_field" name="passcode" id="passcode"
 						placeholder="Enter password" required>
-					<!-- <input type="checkbox" class="checkbox" id="span_check" required> <span>Save information</span> -->
+
 					<button class="submitbut" id="login_submit">
 						login</a>
 					</button>
@@ -108,69 +101,15 @@
 
 	<script src="assets/js/main.js"></script>
 	<script>
-        // creating divs
-
-        //   main div
-        //     yellow = document.createElement("div");
-        //     yellow.setAttribute("class", "main")
-        //     document.querySelector("body").prepend(yellow)
-
-        //     //side_img div
-        //     red = document.createElement("div");
-        //     red.setAttribute("class", "side_img");
-        //     yellow.append(red);
-
-        //     // image placed inside the side_img div
-
-        //     orange = document.createElement("img");
-        //     orange.setAttribute("src", "./assets/banner.jpg");
-        //     red.append(orange);
-
-        //     // backgrond_image div
-        //     violet = document.createElement("div");
-        //     violet.setAttribute("class", "backgrond_image");
-        //     yellow.append(violet);
-
-        //     // form_class
-
-        //     blue = document.createElement("div");
-        //     blue.setAttribute("class", "form_class");
-        //     violet.append(blue);
-
-        //  //  but_box
-        //     black = document.createElement("div");
-        //     black.setAttribute("class", "but_box");
-        //     blue.append(black);
-
-        //     // butn
-        //     brown = document.createElement("div");
-        //     brown.setAttribute("class", "butn");
-        //     black.append(brown);
-
-        //     // button1
-
-        //     grey=document.createElement("button");
-        //     grey.setAttribute("class","butn_1");
-        //     grey.setAttribute("id","butn_1");
-        //     grey.innerText="Login";
-        //     black.append(grey);
-
-        //     // button2
-
-        //     pink=document.createElement("button");
-        //     pink.setAttribute("class","butn_1");
-        //     pink.setAttribute("id","butn_1");
-        //     pink.innerText="Register";
-        //     black.append(grey);
-
+	
+	
+	
         const red = document.getElementById("login")
         const yellow = document.getElementById("register")
         const orange = document.getElementById("butn")
         const butn1 = document.getElementById("butn_1")
         const butn2 = document.getElementById("butn_2")
 
-        // declares a function for register page
-        // let register_login = document.getElementById("butn_2")
         butn2.addEventListener("click", (register) => {
 
             console.log("hbfjhbr")
@@ -213,8 +152,7 @@
             const enterpass = document.getElementById("password1").value;
 
             const mobile = document.getElementById("mobilenumber").value;
-
-            //   alert message for email or account created sucessfully
+         //   alert message for email or account created sucessfully
             const ret = {};
 
             ret.user = user,
@@ -245,14 +183,12 @@
             else if (pass !== enterpass) {
                 alert("Your passcode is not matched")
             }
-            
+        
                 command.push(ret);
-                 
-                
+                      
                 red.style.left = "-400px"
                 yellow.style.left = "50px"
                 orange.style.left = "110px"
-
                 butn2.style.color = "white"
                 butn1.style.color = "black"
 
@@ -264,14 +200,12 @@
         const test = document.getElementById("test");
 
         // Declaring a function for login
-        const formBtn = document.getElementById("register")
-      formBtn.addEventListener("submit", (e) => {
-       
+      const formBtn = document.getElementById("register")
+      formBtn.addEventListener("submit", (e) => {   
          done();
      })  
 
         function done() {
-
             const log_mail = document.getElementById("log_mail").value;
             const passcode = document.getElementById("passcode").value;
 

@@ -13,6 +13,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+      <%@ include file="commonSession.jsp" %>
 	<!-- header section -->
 	<header>
 
@@ -91,10 +92,25 @@
 
 			<span id="star">Only 1 items available!</span>
 
+			<%
+			String name = (String) request.getSession(false).getAttribute("userName");
+			String role = (String) request.getSession(false).getAttribute("role");
+
+			if (role.equals("ARTIST")) {
+			%>
+			<%
+			} else {
+			%>
 			<div class="material">
-				<a href="../pages/cart.html">Buy Now</a>
+				<a
+					href="cart.jsp?productName=<%=product.getname()%>&productid=<%=product.getId()%>&productPrice=<%=product.getPrice()%>">Buy
+					Now</a>
 
 			</div>
+			<%
+			}
+			%>
+
 
 			<br>
 			<div class="hr">

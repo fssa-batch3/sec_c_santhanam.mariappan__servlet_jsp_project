@@ -32,7 +32,7 @@ public class ProfileUpdate extends HttpServlet {
 			throws ServletException, IOException {
 		User user = new User();
 
-		System.out.println(request.getParameter("email"));
+		System.out.println("hello" + request.getParameter("phone"));
 
 		user.setUserName(request.getParameter("firstname"));
 		user.setPhoneNumber(request.getParameter("phone"));
@@ -48,14 +48,14 @@ public class ProfileUpdate extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("User", user);
 			System.out.println("Updated successfully!");
-			
+
 		} catch (SQLException | UserException | DAOException e) {
 			System.out.println(e.getMessage());
 		}
 
 		response.sendRedirect("./profile.jsp");
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);

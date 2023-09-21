@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fssa.zanarts.customexception.DAOException;
 import com.fssa.zanarts.customexception.ProductExpection;
+import com.fssa.zanarts.dao.UserDao;
 import com.fssa.zanarts.enumclass.Types;
 import com.fssa.zanarts.model.Dimension;
 import com.fssa.zanarts.model.Product;
@@ -50,11 +51,27 @@ public class AddProduct extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = null;
 		PrintWriter out = response.getWriter();
 
-		response.getWriter().append("Served at:").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+		String email = (String) session.getAttribute("User");
+		System.out.println("tytg" + session.getAttribute("User"));
 
+		if (email == null) {
+			out.print("User is null");
+			return;
+		}
+
+		int emailId = 0;
+		try {
+			emailId = new UserDao().getUserIdByEmail(email);
+			System.out.println("Found Email Id");
+			System.out.println(emailId);
+		} catch (DAOException e) {
+			e.printStackTrace();
+			throw new ServletException("Unable to find User Id");
+		}
+		System.out.println(emailId);
 		String name = request.getParameter("productName");
 		String category = request.getParameter("Category");
 		String url = request.getParameter("producturl");
@@ -63,50 +80,40 @@ public class AddProduct extends HttpServlet {
 		String width = request.getParameter("producttWidth");
 		String height = request.getParameter("producttHeight");
 		String artistname = request.getParameter("artistName");
-		HttpSession session = request.getSession();
-		System.out.println("tytg" +session.getAttribute("LoggedUser"));
-		String emailid=(String) session.getAttribute("LoggedUser");
-		
+
 		System.out.println(Description);
 
 		ProductService product = new ProductService();
 
 		Dimension dm = new Dimension(Integer.parseInt(width), Integer.parseInt(height));
 		Product product1 = new Product();
+
 		product1.setname(name);
-		product1.setArtistname(artistname);
 		product1.setId(1);
+		product1.setArtistname(artistname);
 		product1.setPrice(Double.parseDouble(price));
 		product1.setCategory(Types.valueToEnumMapping(category));
 		product1.setSize(dm);
 		product1.setProductDescription(Description);
-		product1.setUserId(emailid);
+		product1.setUserId(emailId+"");
 		product1.setUrl(url);
 
 		System.out.println(product1);
 
 		try {
-			try {
-				product.addProduct(product1);
-			} catch (DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
+			product.addProduct(product1);
 			request.setAttribute("Art Ready to upload", product1.getname() + "Art Ready to upload");
-			rd = request.getRequestDispatcher("Check");
+			RequestDispatcher rd = request.getRequestDispatcher("Check");
+			rd.forward(request, response);
 
-		} catch (SQLException | ProductExpection e) {
+		} catch (SQLException | ProductExpection | DAOException e) {
 
 			System.out.println("not added ");
 			e.printStackTrace();
 			request.setAttribute("addTaskError", e.getMessage());
-			rd = request.getRequestDispatcher("./artistupload.jsp");
+			request.getRequestDispatcher("./artistupload.jsp").forward(request, response);
 		}
 
-	   finally {
-		   rd.forward(request, response);
-	   }
 	}
 
 }

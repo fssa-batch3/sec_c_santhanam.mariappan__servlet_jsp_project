@@ -38,20 +38,19 @@ public class RegisterServlet extends HttpServlet {
         user.setPassword(password);
         user.setPhoneNumber(phoneNumber);
         user.setRole(Role.valueOf(role));
-        
-        System.out.println("Comes to servlet");
-        request.getParameterNames();
+
        
         
         try {
 			UserService.addUser(user);
 			HttpSession session = request.getSession();
-			session.setAttribute("User", user);
-			System.out.println(user.toString());
+		    session.setAttribute("User", user);
+		    
+			System.out.println(user.getRole().getValue());
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		} catch (SQLException | UserException e) {
-
+			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			System.out.println(e.getMessage());
 			rd.forward(request, response);

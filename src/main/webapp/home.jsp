@@ -36,8 +36,7 @@
 
 </head>
 <body>
-
-
+	<%@ include file="commonSession.jsp"%>
 	<div class="hero">
 		<video autoplay muted loop id="myVideo">
 			<source src=./assets/videos/blue.mp4>
@@ -57,10 +56,10 @@
 			<img src=https://iili.io/HyWWlUu.png width="200px" alt="">
 
 		</div>
-		
-		
-		<h3 id="emailid" style="color: white"><%=session.getAttribute("userEmail") %></h3>
-		
+
+
+		<h3 id="emailid" style="color: white"><%=session.getAttribute("userEmail")%></h3>
+
 	</div>
 
 	<div class="nav">
@@ -104,8 +103,7 @@
 					Upload your first <span>art </span> here!
 				</h1>
 				<br> <br> <a href="artistupload.jsp"> <img
-					src="https://iili.io/J9nlAsn.png" width="100px"
-					alt="">
+					src="https://iili.io/J9nlAsn.png" width="100px" alt="">
 				</a> <br> <br>
 
 			</div>
@@ -216,8 +214,7 @@
 			<hr>
 			<div class="foot">
 				<div class="footer_one">
-					<img src=https://iili.io/J9n1EPe.png width="130px"
-						alt="no error">
+					<img src=https://iili.io/J9n1EPe.png width="130px" alt="no error">
 					<p>Privacy | Terms of Service</p>
 					<p>Zanarts international Ltd 2023</p>
 				</div>

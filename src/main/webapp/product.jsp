@@ -15,6 +15,7 @@
 <title>All Products</title>
 </head>
 <body>
+      <%@ include file="commonSession.jsp" %>
 	<!-- header section -->
 	<header>
 
@@ -32,8 +33,8 @@
 		<div class="side_nav1">
 			<ul>
 				<a href="account.jsp"> <img
-					src="assets/images/profile_picture_user_icon_153847.png"
-					 id="asst" width="30px" alt="no error">
+					src="assets/images/profile_picture_user_icon_153847.png" id="asst"
+					width="30px" alt="no error">
 				</a>
 
 
