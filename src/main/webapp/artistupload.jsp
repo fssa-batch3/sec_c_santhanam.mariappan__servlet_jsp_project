@@ -94,10 +94,10 @@
 				<li><a href="../pages/home.html">Home</a></li>
 				<span>
 					<button>
-						<a href="../pages/categories.html">Shop our product</a>
+						<a href="product.jsp">Shop our product</a>
 					</button>
 				</span>
-				<li><a href="../account.html"> <img
+				<li><a href="account.jsp"> <img
 						src="https://iili.io/J9nMvi7.png" width="30px" alt="no error">
 				</a></li>
 
@@ -175,17 +175,23 @@
 								<p>
 									Art Work<i id="star" class="fa-solid fa-star-of-life"></i>
 								</p>
-								<!-- <select name="Art" id="Ctry" name="Category" required> 
-
-                                    <option>Canvas</option>
-                                    <option>Water colour</option>
-                                    <option>Realism</option>
-                                    <option> Hyper Realism</option>
-                                    <option>3D Arts</option>
-                                    <option>mandana</option>
-                                </select> -->
-
-								<input id="Ctry" name="Category" value="realism">
+								
+								
+							  <select  id="Ctry" name="Category" required> 
+                                   
+                                    <option value="canva">canva</option>
+                                    <option value="watercolour">watercolour</option>
+                                    <option value="realism">realism</option>
+                                    <option value="hyperrealism"> hyperrealism</option>
+                                    <option value="3darts">3darts</option>
+                                    <option value="mandana">mandana</option>
+                                    <option value="illustration">illustration</option>
+                                    <option value="digital">digital</option>
+                                    <option value="photography">photography</option>
+                                    <option value="modernpainting">modernpainting</option>
+                                    </select>
+                                
+							 
 
 
 
@@ -226,7 +232,7 @@
 			<div class="atlast">
 
 				<div class="atlast2">
-					<button type="submit">UPLOAD</button>
+					<button type="submit">Proceed</button>
 				</div>
 
 			</div>
@@ -313,7 +319,7 @@
         })
         
 
-
+</script>
 </body>
 
 </html>

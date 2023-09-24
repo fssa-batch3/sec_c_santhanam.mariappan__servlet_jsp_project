@@ -15,51 +15,9 @@
 <title>All Products</title>
 </head>
 <body>
-      <%@ include file="commonSession.jsp" %>
+	<%@ include file="commonSession.jsp"%>
 	<!-- header section -->
-	<header>
-
-		<div class="logo">
-			<img src=https://iili.io/HyXnQpf.png width="150px" alt="no error">
-		</div>
-
-		<div class="input">
-			<input type="text" name="search_bar" id="search"
-				placeholder="What do you like today???"> <i
-				class="fa fa-search"></i>
-			</button>
-		</div>
-
-		<div class="side_nav1">
-			<ul>
-				<a href="account.jsp"> <img
-					src="assets/images/profile_picture_user_icon_153847.png" id="asst"
-					width="30px" alt="no error">
-				</a>
-
-
-			</ul>
-
-		</div>
-
-	</header>
-	<!-- hr line  -->
-	<span id="hr1">
-		<hr>
-	</span>
-
-	<div class="header_prt1">
-		<ul>
-			<li><a href="explore.jsp">Explore |</a></li>
-			<li><a href="home.jsp">home |</a></li>
-			<li><a href="categories.jsp">Shop our product |</a></li>
-			<li><a href="">Find Service </a></li>
-
-		</ul>
-	</div>
-	<span id="hr2">
-		<hr>
-	</span>
+	<%@ include file="header.jsp"%>
 
 	<div class="backimg">
 		<img src=https://iili.io/Hy1nEUQ.jpg alt="">
@@ -90,31 +48,7 @@
 					<div class="side-options">
 
 
-						<div class="option">
-							<form id="do" method="post"
-								action="DeleteProduct?id=<%=ele.getId()%>">
-								<a href="#" class="open" data-id="<%=ele.getId()%>"
-									data-productname="<%=ele.getname()%>"
-									data-productDes="<%=ele.getProductDescription()%>"
-									data-url="<%=ele.getImageurl()%>"
-									data-artistname="<%=ele.getArtistname()%>"
-									data-catg="<%=ele.getCategory()%>"
-									data-pr="<%=ele.getPrice()%>"
-									data-Width="<%=ele.getSize().getWidth()%>"
-									data-Heigth="<%=ele.getSize().getHeight()%>"> <i
-									class="fa fa-edit" id="openPopupBtn"
-									style="font-size: 25px; color: rgba(251, 186, 113, 255);"></i></a>
-
-
-
-								<button id="sub_but" type="submit">
-									<i class="fa fa-trash"
-										style="font-size: 25px; color: rgba(251, 186, 113, 255);"></i>
-								</button>
-							</form>
-
-
-						</div>
+						<div class="option"></div>
 
 
 

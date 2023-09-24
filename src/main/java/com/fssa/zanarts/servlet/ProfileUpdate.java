@@ -3,6 +3,7 @@ package com.fssa.zanarts.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,7 @@ public class ProfileUpdate extends HttpServlet {
 		user.setUserName(request.getParameter("firstname"));
 		user.setPhoneNumber(request.getParameter("phone"));
 		user.setEmail(request.getParameter("email"));
-		user.setRole(Role.valueOf(request.getParameter("role")));
+		user.setRole(Role.valueOf(request.getParameter("role").toUpperCase()));
 
 		System.out.println("After setting user obj");
 		System.out.println(user.getEmail());
@@ -46,14 +47,14 @@ public class ProfileUpdate extends HttpServlet {
 		try {
 			UserService.updateUser(user);
 			HttpSession session = request.getSession();
-			session.setAttribute("User", user);
+			session.setAttribute("User", user.getEmail());
+			
 			System.out.println("Updated successfully!");
 
 		} catch (SQLException | UserException | DAOException e) {
 			System.out.println(e.getMessage());
 		}
-
-		response.sendRedirect("./profile.jsp");
+	response.sendRedirect("./account.jsp");
 	}
 
 	@Override

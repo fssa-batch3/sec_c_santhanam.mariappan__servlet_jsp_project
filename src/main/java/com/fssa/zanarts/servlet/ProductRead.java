@@ -51,7 +51,7 @@ public class ProductRead extends HttpServlet {
 		}
 
 //		System.out.println(productList.size());
-		RequestDispatcher dis = request.getRequestDispatcher("/product.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("product.jsp");
 		dis.forward(request, response);
 	}
 

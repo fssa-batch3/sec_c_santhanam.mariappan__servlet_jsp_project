@@ -24,26 +24,27 @@ import com.fssa.zanarts.service.OrderService;
 public class OrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String productName = request.getParameter("productName");
-		
-	    String productPriceStr = request.getParameter("productPrice");
-	    double productPrice = Double.parseDouble(productPriceStr);
-	    
-	    String quantityStr = request.getParameter("quantity");
-	    int quantity = Integer.parseInt(quantityStr);
-	    
-	    String totalAmountStr = request.getParameter("totalAmount");
-	    int totalAmount = Integer.parseInt(totalAmountStr);
-	    
-	    Order order = new Order();
-	    
-	    String email = (String) request.getSession(false).getAttribute("User");
+
+		/// id receive name something
+		String product_id = request.getParameter("product_id");
+		int productId = Integer.parseInt(product_id);
+
+		String productPriceStr = request.getParameter("productPrice");
+		double productPrice = Double.parseDouble(productPriceStr);
+
+		String quantityStr = request.getParameter("quantity");
+		int quantity = Integer.parseInt(quantityStr);
+
+		String totalAmountStr = request.getParameter("totalAmount");
+		int totalAmount = Integer.parseInt(totalAmountStr);
+
+		Order order = new Order();
+
+		String email = (String) request.getSession(false).getAttribute("User");
 		try {
 			User user = UserDao.getUserByEmail(email);
 			System.out.println(user.getId());
@@ -51,27 +52,28 @@ public class OrderServlet extends HttpServlet {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-	    
-	    order.setProductname(productName);
-	    order.setPrice(productPrice);
-	    order.setQuantity(quantity);
-	    order.setStatus(OrderStatus.ORDERED);
-	    order.setTotalAmount(totalAmount);
-	    
-	    try {
+//ordder.setv id
+		order.setProductId(productId);
+		order.setProductname(productName);
+		order.setPrice(productPrice);
+		order.setQuantity(quantity);
+		order.setStatus(OrderStatus.ORDERED);
+		order.setTotalAmount(totalAmount);
+
+		try {
 			OrderService.addOrder(order);
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("information.jsp");
 		} catch (SQLException | OrderException | DAOException e) {
-			
+
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-	    
+
 	}
-	
+
 	@Override
-		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			doGet(req, resp);
-		}
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
 
 }

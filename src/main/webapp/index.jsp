@@ -81,7 +81,7 @@
 				</form>
 
 				<form id="register" class="input_group" action="LoginServlet"
-					method="post">
+					method="get">
 
 					<input type="email" class="input_field" id="log_mail"
 						name="log_mail" placeholder="User mail" required> <input
@@ -98,7 +98,6 @@
 
 		</div>
 	</div>
-
 	<script src="assets/js/main.js"></script>
 	<script>
 	

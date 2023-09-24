@@ -56,10 +56,6 @@
 			<img src=https://iili.io/HyWWlUu.png width="200px" alt="">
 
 		</div>
-
-
-		<h3 id="emailid" style="color: white"><%=session.getAttribute("userEmail")%></h3>
-
 	</div>
 
 	<div class="nav">
@@ -75,6 +71,12 @@
 						Products</button>
 				</form>
 				<li><a href="findservice.jsp">Find service</a></li>
+
+
+				<form action="OrderHistroy" method="GET">
+					<button type="submit" value="submit">Orders</button>
+				</form>
+				<!-- 				<li><a href="OrderHistroy">Order History</a></li> -->
 
 			</ul>
 

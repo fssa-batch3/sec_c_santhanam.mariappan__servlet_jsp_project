@@ -25,51 +25,55 @@
 </head>
 
 <body>
-      <%@ include file="commonSession.jsp" %>
-	<header>
-
-		<div class="logo">
-			<img src="assets/images/new_logo plain.png" width="150px"
-				alt="no error">
-		</div>
-
-		<div class="input">
-			<input type="text" name="search_bar" id="search"
-				placeholder="What do you like today???"> <i
-				class="fa fa-search"></i>
-		</div>
-
-		<div class="side1_nav">
-			<ul>
-
-			</ul>
-
-		</div>
-
-	</header>
-	<!-- hr line  -->
-	<span id="hr1"> <br>
-		<hr> <br>
-	</span>
-
-	<div class="header_prt1">
-		<ul>
-			<li><a href="/pages/home.jsp">Home |</a></li>
-			<li><a href="/pages/categories.jsp">Products |</a></li>
-			<li><a href="findservice.jsp">Find Service </a></li>
-
-		</ul>
-	</div>
-	<span id="hr2"> <br>
-		<hr>
-	</span>
-
+	<%@ include file="commonSession.jsp"%>
+	<%@ include file="header.jsp"%>
 	<!-- background_image -->
+	<!-- pop up  -->
+	<div id="bacclr">
+		<div id="popup" class="popup">
+			<div class="popup-content">
+				<span class="close" id="closePopupBtn">&times;</span>
+
+
+				<form id="UpdateProduct" action="UpdateProduct" method="post">
+					<label for="productId"> <input type=text id="productId"
+						name="productid1" style="display: none;"></label> <br> <label
+						for="productName">
+						<h3>Name:</h3>
+					</label> <input type="text" id="productName" name="productName1" required>
+					<br> <label for="productDescription">
+						<h3>Description:</h3>
+					</label> <input type="text" id="productDescription"
+						name="productDescription1" required> <br> <label
+						for="productPrice">
+						<h3>Price:</h3>
+					</label> <input type="number" id="productPrice" name="productPrice1"
+						min="0.01" step="0.01" required> <br> <label
+						for="productWidth"><h3>Width:</h3></label> <input type="number"
+						id="productWidth" name="productWidth1" min="1" required> <br>
+					<label for="productHeight">
+						<h3>Height:</h3>
+					</label> <input type="number" id="productHeight" name="productHeight1"
+						min="1" required> <br> <label for="artistName"><h3>Artist
+							Name:</h3></label> <input type="text" id="artistName" name="artistName1"
+						required> <br>
+					<h3>Category:</h3>
+					<label for="Category"><input type="text" id="Ctry"
+						name="Category1"></label> <br>
+					<h3>Url:</h3>
+					<label for="url"><input type="text" id="url"
+						name="producturl"></label> <br>
+
+
+					<button type="submit" id="update_but">Update Product</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<!-- main tag for whole content -->
 	<div class="container">
-		<h2>Your Uploaded art</h2>
-
+		 
 		<ul class="cards">
 			<%
 			List<Product> productList = (List<Product>) request.getAttribute("userProductList");
@@ -119,46 +123,7 @@
 		</ul>
 	</div>
 
-	<!-- pop up  -->
-	<div id="popup" class="popup">
-		<div class="popup-content">
-			<span class="close" id="closePopupBtn">&times;</span>
 
-
-			<form id="UpdateProduct" action="UpdateProduct" method="post">
-				<label for="productId"> <input type=text id="productId"
-					name="productid1" style="display: none;"></label> <br> <label
-					for="productName">
-					<h3>Name:</h3>
-				</label> <input type="text" id="productName" name="productName1" required>
-				<br> <label for="productDescription">
-					<h3>Description:</h3>
-				</label> <input type="text" id="productDescription"
-					name="productDescription1" required> <br> <label
-					for="productPrice">
-					<h3>Price:</h3>
-				</label> <input type="number" id="productPrice" name="productPrice1"
-					min="0.01" step="0.01" required> <br> <label
-					for="productWidth"><h3>Width:</h3></label> <input type="number"
-					id="productWidth" name="productWidth1" min="1" required> <br>
-				<label for="productHeight">
-					<h3>Height:</h3>
-				</label> <input type="number" id="productHeight" name="productHeight1"
-					min="1" required> <br> <label for="artistName"><h3>Artist
-						Name:</h3></label> <input type="text" id="artistName" name="artistName1"
-					required> <br>
-				<h3>Category:</h3>
-				<label for="Category"><input type="text" id="Ctry"
-					name="Category1"></label> <br>
-				<h3>Url:</h3>
-				<label for="url"><input type="text" id="url"
-					name="producturl"></label> <br>
-
-
-				<button type="submit" id="update_but">Update Product</button>
-			</form>
-		</div>
-	</div>
 
 	<script src="assets/js/product.js"></script>
 
@@ -172,13 +137,13 @@
 		 document.getElementById("productWidth").value=productObj.Width;
 		 document.getElementById("productHeight").value=productObj.Heigth;
 		 document.getElementById("artistName").value=productObj.Artistname;
-		 document.getElementById("Ctry").value=productObj.catg;
+		 document.getElementById("Ctry").value = productObj.catg.toLowerCase();
 		 document.getElementById("url").value=productObj.Url;
 		 document.getElementById("productId").value=productObj.id;
 		 
 	}
 	
-	
+		
 	const updateProduct= document.querySelectorAll(".open");
 	updateProduct.forEach(product => {
 		product.addEventListener("click", () =>{

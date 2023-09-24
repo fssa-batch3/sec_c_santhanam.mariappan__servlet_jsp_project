@@ -30,10 +30,12 @@
 </head>
 
 <body>
-      <%@ include file="commonSession.jsp" %>
+	<%@ include file="commonSession.jsp"%>
 
 	<%
 	String productName = request.getParameter("productName");
+	String productId = request.getParameter("productid");
+	int product_id = Integer.parseInt(productId);
 	String productPriceStr = request.getParameter("productPrice");
 	// if(productPriceStr != null){
 	double productPrice = Double.parseDouble(productPriceStr);
@@ -112,7 +114,7 @@
 		</div>
 	</div>
 	<hr>
-	
+
 	<div class="main2">
 		<div class="note1">
 			<p><%=productName%></p>
@@ -123,12 +125,15 @@
 			</h4>
 		</div>
 
-		<label for="quantity">Quantity (between 1 and 5): &#128722; 
-		<input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="1">
+		<label for="quantity">Quantity (between 1 and 5): &#128722; <input
+			type="number" id="quantity" name="quantity" min="1" max="5"
+			placeholder="1">
 		</label>
 
 		<div class="note1">
 			<h4 id="totalamt"><%=productPrice%></h4>
+			<h5 id="id"><%=product_id%>>
+			</h5>
 		</div>
 	</div>
 
@@ -141,7 +146,9 @@
 		</div>
 
 		<div class="motherchild1">
-			<h2 id="sub_total">SUBTOTAL: <span id=subtotal><%=productPrice%></span></h2>
+			<h2 id="sub_total">
+				SUBTOTAL: <span id=subtotal><%=productPrice%></span>
+			</h2>
 			<br> <br> <br>
 			<p>Taxes, shipping and discounts codes calculated at checkout</p>
 			<div class="yellow1">
@@ -153,7 +160,7 @@
 
 		</div>
 	</div>
-	
+
 
 	<script>
 	let amountElement = document.getElementById("amt");
@@ -182,16 +189,18 @@
 	    let quantityElement = document.getElementById("quantity").value;
 	    let quantity = parseInt(quantityElement);
 	    let totalAmount = document.getElementById("totalamt").innerText;
+	    let product_id = document.getElementById("id").innerText;
+	    
 	    
 	    console.log(productName);
 	    console.log(quantity);
 	    console.log(amount);
 	    console.log(totalAmount);
 	    
-	    window.location.href = "OrderServlet?productName="+productName+"&productPrice="+amount+"+&quantity="+quantity+"&totalAmount="+totalAmount;
+	    window.location.href = "OrderServlet?productName="+productName+"&productPrice="+amount+"+&quantity="+quantity+"&totalAmount="+totalAmount+"&product_id="+<%=product_id%>;
 	}
 
-
+//id add
 	</script>
 </body>
 

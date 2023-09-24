@@ -14,42 +14,35 @@ import com.fssa.zanarts.customexception.DAOException;
 import com.fssa.zanarts.model.User;
 import com.fssa.zanarts.service.UserService;
 
-/**
- * Servlet implementation class LoginServlet
- */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
+
 		String email = request.getParameter("log_mail");
 		String password = request.getParameter("passcode");
 		UserService userservice = new UserService();
 
 		try {
 			User user = userservice.login(email, password);
-			System.out.println(user.getRole());
+			System.out.println("fijhwreog" + user.getRole());
 			if (user != null) {
-				
 				session.setAttribute("User", email);
-				
 				String role_user = user.getRole().toString();
 				session.setAttribute("role", role_user);
-
-				session.setAttribute("id",user.getId());
-				
+				session.setAttribute("id", user.getId());
 				response.sendRedirect("./home.jsp");
 			} else {
-				response.sendRedirect("./login.jsp");
+				response.sendRedirect("index.jsp");
 			}
 		} catch (DAOException | SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-			response.sendRedirect("./login.jsp");
+			response.sendRedirect("./index.jsp");
 		}
 	}
 }

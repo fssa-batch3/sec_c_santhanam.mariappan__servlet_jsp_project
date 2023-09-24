@@ -20,52 +20,7 @@
 
 <body>
 
-	<!-- header -->
-
-	<header>
-
-		<div class="logo">
-			<img src="assets/images/new_logo plain.png" width="150px"
-				alt="no error">
-		</div>
-
-		<div class="input">
-			<input type="text" name="search_bar" id="search"
-				placeholder="What do you like today???"> <i
-				class="fa fa-search"></i>
-			</button>
-		</div>
-
-		<div class="side1_nav">
-			<ul>
-
-				<li><a href="artist.jsp">Upload arts</a></li>
-				<li><img
-					src="assets/images/profile_picture_user_icon_153847.png"
-					width="30px" alt="no error"></li>
-
-			</ul>
-
-		</div>
-
-	</header>
-	<!-- hr line  -->
-	<span id="hr1">
-		<hr>
-	</span>
-
-	<div class="header_prt1">
-		<ul>
-			<li><a href="home.jsp">Home |</a></li>
-			<li><a href="categories.jsp">Products |</a></li>
-			<li><a href="findservice.jsp">Find Service </a></li>
-
-		</ul>
-	</div>
-	<span id="hr2">
-		<hr>
-	</span>
-	<br>
+	<%@ include file="header.jsp"%>
 
 	<!-- background_image -->
 
@@ -131,12 +86,7 @@
 			<p>Photography</p>
 		</div>
 
-		<div class="slider">
-			<a data-id="3D Arts"> <img src="assets/images/explore4.jpg"
-				alt="">
-			</a>
-			<p>3D Arts</p>
-		</div>
+
 
 		<div class="slider">
 			<a data-id="Digital"> <img src="assets/images/explore5.jpg"
@@ -170,7 +120,7 @@
 		</div>
 
 		<div class="slider">
-			<a data-id="Modern Painting"> <img
+			<a data-id="ModernPainting"> <img
 				src="assets/images/explore_modern.jpg" width="220px" height="300px"
 				alt="">
 			</a>
@@ -178,7 +128,7 @@
 		</div>
 
 		<div class="slider">
-			<a data-id="Oil painting"> <img
+			<a data-id="Oilpainting"> <img
 				src="assets/images/explore_oil.jpg" width="220px" height="300px"
 				alt="">
 			</a>
@@ -193,7 +143,7 @@
 		</div>
 
 		<div class="slider">
-			<a data-id="Hyper Realism"> <img
+			<a data-id="HyperRealism"> <img
 				src="assets/images/explore_hyper.jpg" width="300px" height="300px"
 				alt="">
 			</a>
@@ -246,9 +196,10 @@
         //?name=dataset.id
         const a_tag = document.querySelectorAll(".slidesilder a")
         a_tag.forEach((obj) => {
-            obj.setAttribute("href", `explore_arts.jsp?title=${obj.dataset.id}`);
+        	let categoryName=obj.getAttribute("data-id").toUpperCase();
+            obj.setAttribute("href", "ProductsByCategory?categoryName="+categoryName);
 
-            console.log(a_tag);
+            console.log(obj.getAttribute("data-id"));
 
         })
 

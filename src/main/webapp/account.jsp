@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@page import="com.fssa.zanarts.dao.UserDao"%>
-<%@page import="com.fssa.zanarts.service.UserService"%>
+
 <%@page import="com.fssa.zanarts.logger.Logger"%>
+<%@ page import="com.fssa.zanarts.model.User"%>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,196 +21,132 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
 	rel="stylesheet">
-<%@ page import="com.fssa.zanarts.model.*"%>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
- 
+
+
 </head>
 
 <body>
-      <%@ include file="commonSession.jsp" %>
+	<%@ include file="commonSession.jsp"%>
 	<%
 	String email = (String) request.getSession(false).getAttribute("User");
+
+	System.out.println(email + "locate");
 	User user = UserDao.getUserByEmail(email);
-	System.out.println(user);
+	System.out.println(user + "locate");
 	%>
 
 	<!-- header -->
+	<%@ include file="header.jsp"%>
 
-	<header>
-
-
-
-		<div class="logo">
-			<img src="assets/images/new_logo plain.png" width="100px"
-				alt="no error">
-		</div>
-
-
-
-		<div class="input">
-			<input type="text" name="search_bar" id="search"
-				placeholder="What do you like today???">
-			</button>
-		</div>
-
-
-
-		<div class="side1_nav">
-			<ul>
-				<li><img
-					src="assets/images/profile_picture_user_icon_153847.png"
-					width="30px" alt="no error"></li>
-			</ul>
-
-		</div>
-
-
-	</header>
 
 
 	<!-- hr line  -->
 
 
-	<span id="hr1">
-		<hr>
-	</span>
 
-	<div class="header_prt1">
-		<ul>
-			<li><a href="home.jsp">Home |</a></li>
-			<li><a href="categories.jsp">Products |</a></li>
-			<li><a href="findservice.jsp">Find Service </a></li>
-
-		</ul>
-	</div>
-	<span id="hr2">
-		<hr>
-	</span>
 
 	<!-- main -->
 
 	<!--  display flex div  -->
+	<div class="about">
+		<%
+		String name = (String) request.getSession(false).getAttribute("userName");
+		String role = (String) request.getSession(false).getAttribute("role");
 
-	<div class="back_ground">
+		if (role.equals("ARTIST")) {
+		%>
 
-		<div class="back_ground2">
-
-
-
-			<div class="display2">
-
-
-				<h2>Profile</h2>
-				<br> <img src="assets/images/profile.png" alt="no error"
-					id="image_profile" width="300px"> <br> <br> <br>
-
-				<div class="btn">
-
-					<br> <br>
-					<button id="edit_id">Edit</button>
-				</div>
-				<div class="log">
-					<form action="<%=request.getContextPath()%>/LogoutServlet"
-						method="get">
-						<button>Logout</button>
-					</form>
-				</div>
+		<div class="dic1">
 
 
+
+			<a href="artist1.jsp"> <img src="assets/images/order_logo.png"
+				width="80px" alt="">
+			</a>
+		</div>
+
+		<div class="dic2">
+
+			<a href="<%=request.getContextPath()%>/ArtistProduct"> <img
+				src="assets/images/art_lo.png" width="80px" alt="">
+			</a>
+		</div>
+
+	</div>
+	<%
+	} else {
+	%>
+	<h2>Empty</h2>
+	<%
+	}
+	%>
+
+
+	<div class="container">
+
+		<div class="front_whole">
+			<div class="profile_pic_all">
+				<img src="https://iili.io/JJ5QKtR.png" width="300px">
 			</div>
+
+
+			<div class="butn_dis">
+				<button id="edit_id">
+					<i class="fa fa-pencil-square-o" style="font-size: 32px"></i>
+					<h5 class="h5">Edit</h5>
+				</button>
+
+
+				<form action="<%=request.getContextPath()%>/LogoutServlet"
+					method="get">
+					<button id="edit_id">
+						<i class="fa fa-sign-out" style="font-size: 36px"></i>
+						<h5 class="h5">Logout</h5>
+					</button>
+			</div>
+			</form>
 		</div>
 
 
 
-		<div class="display">
+		<div classs="whole_two">
 
+			<form id="forms" action="./ProfileUpdate" method="post">
 
-			<div class="none">
-
-				<form id="forms" action="ProfileUpdate" method="post">
-					<button id="update_buttton">update</button>
-					<div class="display1">
-
-						<h3>User name:</h3>
-						<input type="text" name="firstname" id="username"
-							value="<%=user.getUserName()%>" pattern="^[A-Za-z0-9_]{1,32}$"
-							title="This contain have (Upper case && Lowercase)" disabled>
-						<br> <br> <br>
-						<h3>Email</h3>
-						<input type="email" name="email" id="email"
-							value="<%=user.getEmail()%>" disabled> <br> <br>
-						<br>
-
-						<h3>Phone number</h3>
-
-						<input type="tel" name="phone" id="phone" required
-							pattern="[0-9]{10}" value="<%=user.getPhoneNumber()%>"
-							title="This contain have Number only" disabled> <br>
-						<br> <br>
-
-						<h3>Role</h3>
-						<input type="role" name="role" id="role" disabled required
-							pattern="[0-9]{10}"
-							value="<%=user.getRole().getValue().toString()%>"
-							title="This contain have Number only">
-				</form>
+				<button id="update_buttton" type="submit">update</button>
+				<h3>User name:</h3>
+				<input type="text" name="firstname" id="username"
+					value="<%=user.getUserName()%>" pattern="^[A-Za-z0-9_]{1,32}$"
+					title="This contain have (Upper case && Lowercase)" disabled>
 				<br> <br> <br>
+				<h3>Email</h3>
+				<input type="email" name="email" id="email"
+					value="<%=user.getEmail()%>" disabled> <br> <br>
+				<br>
 
 
 
-				<div class="about">
-					<%
-					String name = (String) request.getSession(false).getAttribute("userName");
-					String role = (String) request.getSession(false).getAttribute("role");
+				<h3>Phone number</h3>
 
-					if (role.equals("ARTIST")) {
-					%>
-					<div class="dic">
-						<div class="dic1">
+				<input type="tel" name="phone" id="phone" required
+					pattern="[0-9]{10}" value="<%=user.getPhoneNumber()%>"
+					title="This contain have Number only" disabled> <br> <br>
 
-							<h2 id="hi_or">Orders</h2>
-							<a href="artist1.jsp"> <img
-								src="assets/images/order_logo.png" width="80px" alt="">
-							</a>
-						</div>
+				<h3>Role</h3>
+				<input type="role" name="role" id="role" disabled required
+					value="<%=user.getRole().getValue().toString()%>"
+					title="This contain have Number only">
 
-						<div class="dic2">
-							<h2>Your Arts</h2>
-							<a href="<%=request.getContextPath()%>/ArtistProduct"> <img
-								src="assets/images/art_lo.png" width="80px" alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-				<%
-				} else {
-				%>
-				<h2>Empty</h2>
-				<%
-				}
-				%>
-			</div>
+			</form>
 		</div>
 
-	</div>
 
-	<div class="con_dev">
 
-		<div class="con_dev1">
-			<img src="assets/images/pro_bg.png" width="300px" alt="">
-		</div>
 
-		<div class="text">
-			<h3>
-				Publish creative art, craft, writings and other creatives to get
-				visibility ofart enthusiast <br> across the worldWe are
-				specialsts in Art. Creativity and fun are our ingredients for
-				awesome work
-			</h3>
-		</div>
-	</div>
-
-	<script src="<%=request.getContextPath()%>/assets/js/profile.js"></script>
+		<script src="<%=request.getContextPath()%>/assets/js/profile.js"></script>
 </body>
 
 </html>

@@ -54,7 +54,7 @@ public class DeleteProduct extends HttpServlet {
 		}
 		// response.sendRedirect("index.jsp");
 		 
-			RequestDispatcher dis = request.getRequestDispatcher("Check");
+			RequestDispatcher dis = request.getRequestDispatcher("ArtistProduct");
 			dis.forward(request, response);
 	 
 	 
