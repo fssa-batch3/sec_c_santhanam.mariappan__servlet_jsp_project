@@ -8,15 +8,20 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-	href="./assets/css/productshow.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="./assets/css/productshow.css">
+		
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 <title>All Products</title>
+
 </head>
+
 <body>
+
 	<%@ include file="commonSession.jsp"%>
-	<!-- header section -->
+	 
+	 
 	<%@ include file="header.jsp"%>
 
 	<div class="backimg">
@@ -27,13 +32,10 @@
 		<div class="tag1"></div>
 		<p>Shop Our Original product</p>
 	</div>
-
-
-	<!-- background image -->
-
+	
+<!-- background image -->
 
 	<div class="top">
-
 
 		<%
 		List<Product> productList = (List<Product>) request.getAttribute("productList");

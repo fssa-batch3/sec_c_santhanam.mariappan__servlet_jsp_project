@@ -9,10 +9,55 @@
 <link rel="stylesheet" href="assets/css/login.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/notify.css">
+<script
+	src="https://cdn.jsdelivr.net/gh/suryaumapathy2812/notify__js/notify.js">	
+</script>
 </head>
 
 <body>
+  
+	<%
+	String CreateAccountSuccess = (String) request.getAttribute("CreateAccount");
+	String CreateAccountError = (String) request.getAttribute("CreateAccountError");
+	%>
 
+	<%
+	if (CreateAccountError != null) {
+	%>
+	<script>
+		    let CreateAccountError = "<%=CreateAccountError%>";
+		    Notify.error(CreateAccountError);
+		</script>
+	<%
+	}
+	%>
+
+	<%
+	if (CreateAccountSuccess != null) {
+	%>
+	<script>
+	 let CreateAccountSuccess = "<%=CreateAccountSuccess%>";
+	    Notify.success(CreateAccountSuccess);
+		</script>
+	<%
+	}
+	%>
+
+
+	<%
+	String error = (String) request.getAttribute("ErrorMessage");
+	%>
+	<%
+	if (error != null) {
+	%>
+	<script>
+	 let error = "<%=error%>";
+	    Notify.error(error);
+		</script>
+	<%
+	}
+	%>
 	<!-- setting background image -->
 
 	<img src="assets/images/gif1.gif" id="img" width="150px" alt="">
@@ -36,12 +81,7 @@
 
 				</div>
 
-				<div class="icons">
-					<img src="assets/images/gp.png" alt=""> <img
-						src="assets/images/tw.png" alt=""> <img
-						src="assets/images/insta.png" alt="">
 
-				</div>
 
 
 
@@ -49,14 +89,15 @@
 					action="<%=request.getContextPath()%>/RegisterServlet">
 					<h4 id="space">
 						Are you a Artist? <input type="radio" id="Artist" value="ARTIST"
-							name="fav_language"> Are you a Buyer? <input type="radio"
-							id="Buyer" value="BUYER" name="fav_language">
+							name="fav_language" required> Are you a Buyer? <input
+							type="radio" id="Buyer" value="BUYER" name="fav_language"
+							required>
 
 					</h4>
 					<br> <input type="text" class="input_field" id="user_id"
 						placeholder=" Create your User Name" name="user_id"
-						pattern="[A-Za-z]{4,24}"
-						title="usernmae  contain minimum 1 and maximum 24 character">
+						 
+						title="username  contain only  letters minimum 1 and maximum 24 characters">
 
 					<input type="email" class="input_field" id="email"
 						placeholder="Enter your email" name="email" required> <input
@@ -81,7 +122,7 @@
 				</form>
 
 				<form id="register" class="input_group" action="LoginServlet"
-					method="get">
+					method="post">
 
 					<input type="email" class="input_field" id="log_mail"
 						name="log_mail" placeholder="User mail" required> <input

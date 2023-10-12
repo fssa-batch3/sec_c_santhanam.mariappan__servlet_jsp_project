@@ -11,22 +11,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
-	rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Rubik+Microbe&display=swap"
-	rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
 	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet"
+ 
+	<link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
 	crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+	rel="stylesheet">
+	
 </head>
 
 <body>
@@ -41,55 +45,7 @@
 	double productPrice = Double.parseDouble(productPriceStr);
 	// }
 	%>
-
-	<header>
-
-		<div class="logo">
-			<img src="assets/images/new_logo plain.png" width="150px"
-				alt="no error">
-		</div>
-
-		<div class="input">
-			<input type="text" name="search_bar" id="search"
-				placeholder="What do you like today???"> <i
-				class="fa fa-search"></i>
-			</button>
-		</div>
-
-		<div class="side_nav">
-			<ul>
-				<!-- <li><a href="">Become a seller</a></li> -->
-				<li><a href="../pages/home.html">Home</a></li>
-				<span>
-					<button>
-						<a href="product.jsp">Shop our product</a>
-					</button>
-				</span>
-				<li><img
-					src="assets/images/profile_picture_user_icon_153847.png"
-					width="30px" alt="no error"></li>
-
-			</ul>
-
-		</div>
-
-	</header>
-	<!-- hr line  -->
-	<span id="hr1">
-		<hr>
-	</span>
-
-	<div class="header_prt1">
-		<ul>
-			<li><a href="explore.jsp">Explore |</a></li>
-			<li><a href="categories.jsp">Shop our product |</a></li>
-			<li><a href="">Find Service </a></li>
-
-		</ul>
-	</div>
-	<span id="hr2">
-		<hr>
-	</span>
+	<%@ include file="header.jsp"%>
 
 	<!-- main -->
 	<div class="main">
@@ -132,8 +88,6 @@
 
 		<div class="note1">
 			<h4 id="totalamt"><%=productPrice%></h4>
-			<h5 id="id"><%=product_id%>>
-			</h5>
 		</div>
 	</div>
 
@@ -156,7 +110,7 @@
 				<div class="yellow2"></div>
 			</div>
 
-			<button type="submit" onclick="bookOrder()">Book Order</button>
+			<button type="submit" id="hel" onclick="bookOrder()">Book Order</button>
 
 		</div>
 	</div>

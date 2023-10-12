@@ -426,3 +426,15 @@ h1 {
 .stars input:checked ~ label {
   color: #ffca08;
 }
+
+#but_ion {
+	background: none;
+	font-size: 20px; font-family : 'Poppins', sans-serif; color : gray;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
+	font-family: 'Poppins', sans-serif;
+	color: gray;
+}

@@ -96,7 +96,7 @@
 
 
 .input_group {
-    /* top: 180px; */
+     top: 170px;  
     position: absolute;
     width: 280px;
     transition: .5s

@@ -102,7 +102,7 @@ public class AddProduct extends HttpServlet {
 
 		try {
 			product.addProduct(product1);
-			request.setAttribute("Art Ready to upload", product1.getname() + "Art Ready to upload");
+			request.setAttribute("addTaskSuccess",product1.getname()+"Art Added Successfully!");
 			RequestDispatcher rd = request.getRequestDispatcher("Check");
 			rd.forward(request, response);
 

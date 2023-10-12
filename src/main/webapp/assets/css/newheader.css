@@ -1,0 +1,81 @@
+@charset "ISO-8859-1";
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: rgba(255, 242, 238, 255);
+}
+
+#class_div{
+   margin-right: 50px;  
+    display: flex;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+}
+#fa_icon{
+    padding-left: 10px;
+    font-size: 15px;
+    padding-top: 5px;
+    color: gray;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.fa{
+    padding-left: 10px;
+     margin-left: 10px;
+    color: rgba(251,186,113,255);
+}
+
+header img{
+    margin-left: 20px;
+}
+
+#a_tag {
+    text-decoration: none;
+    color: orange;
+    padding-left: 20px;
+
+}
+
+#none{
+    background-color: rgba(255, 242, 238, 255);
+    border: none;
+}
+
+#popup_cont{
+    display: none;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    width: 300px;
+    padding-left: 50px;
+    position: relative;
+    top: 100px;
+    left: 35%;
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+}
+
+#popup_cont h4{
+    margin-left: 30px;
+}
+#popup_cont h3{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#popup_cont button{
+    padding: 10px 30px 10px 30px;
+   background-color: rgba(251,186,113,255);
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+    border: none;
+    margin-left: 20px;
+}

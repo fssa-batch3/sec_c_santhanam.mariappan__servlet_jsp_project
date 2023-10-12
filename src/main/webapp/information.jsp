@@ -183,15 +183,14 @@
 			<div class="card-container">
 				<div class="card" ng-class="{flipped: flipped}">
 					<div class="card__front">
-						<span class="card__number">0000 0000 0000 0000</span>
-						  <span class="card__expiration-date">cardExpirationMonth
-						 00 |00</span> <br>
-						 <span	class="card__owner">Card Name******</span> <br><br><br>
-						<span class="card__chip"></span>
+						<span class="card__number">0000 0000 0000 0000</span> <span
+							class="card__expiration-date">cardExpirationMonth 00 |00</span> <br>
+						<span class="card__owner">Card Name******</span> <br> <br>
+						<br> <span class="card__chip"></span>
 					</div>
 					<div class="card__back">
-						<span class="card__verification-value"> 
-							000</span> <span class="card__bar"></span>
+						<span class="card__verification-value"> 000</span> <span
+							class="card__bar"></span>
 					</div>
 				</div>
 			</div>
@@ -216,7 +215,9 @@
 					ng-focus="flipped=true" ng-model="cardVerificationValue" type="tel"
 					maxlength="3">
 				<div class="payment__form__button-container">
-					<button type="submit" class="payment__form__button">Submit</button>
+
+					<a class="payment__form__button" href="order.jsp">Submit</a>
+
 				</div>
 			</form>
 		</section>

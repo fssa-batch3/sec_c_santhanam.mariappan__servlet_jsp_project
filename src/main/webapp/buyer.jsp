@@ -75,10 +75,14 @@
 	<div class="main"></div>
 	`
 	<%
-	for (Order order : orderDetails) {
-			Product pt = ProductDao.getProductById(order.getProductId()); // Assuming product.getId() is correct
-			System.out.println(order.getProductId());
+	for (Order order : orderDetails)
+		if (order != null) {
+			{
+		Product pt = ProductDao.getProductById(order.getProductId()); // Assuming product.getId() is correct
+		System.out.println(order.getProductId());
 	%>
+
+
 	<main>
 		<img src="<%=pt.getImageurl()%>" width="250px" alt="">
 		<h3>
@@ -101,7 +105,11 @@
 	</main>
 	<%
 	}
-	
+	} else {
+	%>
+	<h2>No orders are placed</h2>
+	<%
+	}
 	%>
 
 </body>

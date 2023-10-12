@@ -33,7 +33,8 @@ public class RegisterServlet extends HttpServlet {
 
 		// Create a User object
 		User user = new User();
-		user.setUserName(userName);
+		String trimmedUsername = userName.replaceAll("^\\s+|\\s+$", "");
+		user.setUserName(trimmedUsername);
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setPhoneNumber(phoneNumber);
@@ -45,16 +46,17 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			UserService.addUser(user);
 			HttpSession session = request.getSession();
-
+			request.setAttribute("CreateAccount", "Successfully created Account");
 			System.out.println(user.getRole().getValue());
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		} catch (SQLException | UserException e) {
-
+			request.setAttribute("CreateAccountError", e.getMessage());
+			e.printStackTrace();
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			System.out.println(e.getMessage());
 			rd.forward(request, response);
-			e.printStackTrace();
+
 		}
 	}
 }

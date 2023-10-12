@@ -8,6 +8,8 @@
 <title>Document</title>
 <link rel="stylesheet" href="assets/css/explore.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
 	href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
@@ -128,6 +130,15 @@
 		</div>
 
 		<div class="slider">
+			<a data-id="Canva"> <img
+				src="https://i.pinimg.com/564x/e8/0c/ff/e80cff424d67da306d40b2be8ee35f60.jpg"
+				width="220px" height="300px" alt="">
+			</a>
+			<p>Canva</p>
+		</div>
+
+
+		<div class="slider">
 			<a data-id="Oilpainting"> <img
 				src="assets/images/explore_oil.jpg" width="220px" height="300px"
 				alt="">
@@ -156,7 +167,14 @@
 			</a>
 			<p>Sculpture</p>
 		</div>
-
+		
+		
+		<div class="slider">
+			<a data-id="Watercolour"> <img src="https://i.pinimg.com/564x/92/c1/e4/92c1e4855a593e1b60645e9c8fa6e669.jpg"
+				width="220px" height="300px" alt="">
+			</a>
+			<p>Water colour</p>
+		</div>
 	</div>
 
 	<!--not  -->
@@ -167,6 +185,8 @@
 		<p>Opening a shop is free, fun and fast.</p>
 		<br> <br> <a href="">Learn more</a>
 	</div>
+
+
 	<!-- not ends -->
 
 	<!-- footer start-->
@@ -198,7 +218,6 @@
         a_tag.forEach((obj) => {
         	let categoryName=obj.getAttribute("data-id").toUpperCase();
             obj.setAttribute("href", "ProductsByCategory?categoryName="+categoryName);
-
             console.log(obj.getAttribute("data-id"));
 
         })

@@ -12,16 +12,23 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap"
 	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap"
+	rel="stylesheet">
 </head>
 
 <body>
 
 	<main>
-		<img src="assets/images/user/order-removebg-preview.png" width="300px"
-			alt="">
-		<h3>Your Order is placed</h3>
-		<p>Check Your Registred phone number SMS for upcoming Details</p>
-		<a href="home.jsp">Home</a>
+
+		<img src="assets/images/food-delivery.gif" width="600px" alt="">
+		<div class="div_emp">
+			<h3>Your Order is placed</h3>
+			<a href="OrderHistroy">See your order</a>
+			
+		</div>
 	</main>
 </body>
 

@@ -29,36 +29,34 @@ public class ProfileUpdate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		User user = new User();
 
-		System.out.println("hello" + request.getParameter("phone"));
-
+		System.out.println("hello" + request.getParameter("phone1"));
+		System.out.println("datya" + request.getParameter("firstname"));
 		user.setUserName(request.getParameter("firstname"));
-		user.setPhoneNumber(request.getParameter("phone"));
+		user.setPhoneNumber(request.getParameter("phone1"));
 		user.setEmail(request.getParameter("email"));
-		user.setRole(Role.valueOf(request.getParameter("role").toUpperCase()));
-
-		System.out.println("After setting user obj");
-		System.out.println(user.getEmail());
-		System.out.println(user.getUserName());
+		
+		/// user.setRole(Role.valueOf(request.getParameter("role").toUpperCase()));
 
 		try {
 			UserService.updateUser(user);
-			HttpSession session = request.getSession();
-			session.setAttribute("User", user.getEmail());
-			
+			// HttpSession session = request.getSession();
+			// session.setAttribute("User", user.getEmail());
+
 			System.out.println("Updated successfully!");
+			response.sendRedirect("account.jsp");
 
 		} catch (SQLException | UserException | DAOException e) {
 			System.out.println(e.getMessage());
 		}
-	response.sendRedirect("./account.jsp");
+
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
 }

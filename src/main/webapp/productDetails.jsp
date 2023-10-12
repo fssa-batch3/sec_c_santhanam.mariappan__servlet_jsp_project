@@ -13,51 +13,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-      <%@ include file="commonSession.jsp" %>
+	<%@ include file="commonSession.jsp"%>
 	<!-- header section -->
-	<header>
-
-		<div class="logo">
-			<img src=https://iili.io/HyXnQpf.png width="150px" alt="no error">
-		</div>
-
-		<div class="input">
-			<input type="text" name="search_bar" id="search"
-				placeholder="What do you like today???"> <i
-				class="fa fa-search"></i>
-			</button>
-		</div>
-
-		<div class="side_nav1">
-			<ul>
-				<li><a href="../pages/categories.html">Shop Our product</a></li>
-
-				<li><img src=https://iili.io/HyXoIYg.png "
-					width="30px"
-					alt="no error"></li>
-
-			</ul>
-
-		</div>
-
-	</header>
-	<!-- hr line  -->
-	<span id="hr1">
-		<hr>
-	</span>
-
-	<div class="header_prt1">
-		<ul>
-			<li><a href="../pages/explore.html">Explore |</a></li>
-			<li><a href="../pages/categories.html">Shop our product |</a></li>
-			<li><a href="">Find Service </a></li>
-
-		</ul>
-	</div>
-	<span id="hr2">
-		<hr>
-	</span>
-
+ 	<%@ include file="header.jsp"%>
+ 	
+ 	<hr>
 
 	<%
 	int id = Integer.parseInt(request.getParameter("id"));
@@ -78,7 +38,7 @@
 				id="parrot"><%=product.getProductDescription()%> </span> <br>
 
 			<p>
-				Reference: 8"*6" size <br> <span id="yellow">Sold by: <%=product.getArtistname()%></span>
+				 <br> <span id="yellow">Sold by: <%=product.getArtistname()%></span>
 			</p>
 			<br>
 			<h3>
@@ -116,7 +76,7 @@
 			<div class="hr">
 				<h3>Product Detail</h3>
 				<span id="lol">
-					<p>8"*6" size non-Framed</p>
+					<p>Reference: <%=product.getSize().getHeight()%>mm && <%=product.getSize().getWidth()%>mm</p>
 				</span>
 				<hr>
 				<h3>Exchange & Returns</h3>

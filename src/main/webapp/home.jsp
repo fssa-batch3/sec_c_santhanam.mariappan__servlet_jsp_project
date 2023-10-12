@@ -34,8 +34,11 @@
 	href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap"
 	rel="stylesheet">
 
+
 </head>
 <body>
+
+
 	<%@ include file="commonSession.jsp"%>
 	<div class="hero">
 		<video autoplay muted loop id="myVideo">
@@ -70,11 +73,11 @@
 					<button type="submit" id="but_ion" value="submit">Get All
 						Products</button>
 				</form>
-				<li><a href="findservice.jsp">Find service</a></li>
+				 
 
 
 				<form action="OrderHistroy" method="GET">
-					<button type="submit" value="submit">Orders</button>
+					<button type="submit" id="but_ion" value="submit">Orders</button>
 				</form>
 				<!-- 				<li><a href="OrderHistroy">Order History</a></li> -->
 

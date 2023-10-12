@@ -22,11 +22,30 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
 	crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="assets/css/notify.css">
+<script
+	src="https://cdn.jsdelivr.net/gh/suryaumapathy2812/notify__js/notify.js">
+	
+</script>
 </head>
 
 <body>
 	<%@ include file="commonSession.jsp"%>
 	<%@ include file="header.jsp"%>
+	<%
+	String updateProductError = (String) request.getAttribute("NotUpdate");
+	System.out.println(updateProductError + "Error is");
+	%>
+	<%
+	if (updateProductError != null) {
+	%>
+	<script>
+		    let addTaskError = "<%=updateProductError%>";
+		    Notify.error(addTaskError);
+		</script>
+	<%
+	}
+	%>
 	<!-- background_image -->
 	<!-- pop up  -->
 	<div id="bacclr">
@@ -73,7 +92,7 @@
 
 	<!-- main tag for whole content -->
 	<div class="container">
-		 
+
 		<ul class="cards">
 			<%
 			List<Product> productList = (List<Product>) request.getAttribute("userProductList");
@@ -87,7 +106,7 @@
 						class="round" src="<%=ele.getImageurl()%>" width="300px"
 						alt="user" />
 					</a>
-					<h3 class="card-title" id="card-title">isac</h3>
+					<h3 class="card-title" id="card-title"><%=ele.getname()%></h3>
 					<div class="card-content">
 						<p>
 							"<%=ele.getProductDescription()%>"

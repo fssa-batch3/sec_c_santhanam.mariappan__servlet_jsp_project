@@ -61,8 +61,7 @@ public class UpdateProduct extends HttpServlet {
 		String width = request.getParameter("productWidth1");
 		String height = request.getParameter("productHeight1");
 		String artistname = request.getParameter("artistName1");
-		
-		
+
 //		creating object for productService
 
 		ProductService product = new ProductService();
@@ -83,8 +82,9 @@ public class UpdateProduct extends HttpServlet {
 			System.out.println("Update successfully ");
 
 		} catch (SQLException | ProductExpection e) {
-			System.out.println("not update ");
 			e.printStackTrace();
+			System.out.println("not update ");
+			request.setAttribute("NotUpdate", e.getMessage());
 		}
 
 		response.getWriter().write("product success");

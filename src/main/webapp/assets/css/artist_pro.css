@@ -152,7 +152,6 @@ h2 {
 	text-align: center;
 	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
-	overflow: hidden;
 	/* display: flex; */
 }
 
@@ -356,4 +355,15 @@ to {
 	color: white;
 	border: none;
 	border-radius: 10px;
+}
+#but_ion {
+	background: none;
+	font-size: 20px; font-family : 'Poppins', sans-serif; color : gray;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
+	font-family: 'Poppins', sans-serif;
+	color: gray;
 }
