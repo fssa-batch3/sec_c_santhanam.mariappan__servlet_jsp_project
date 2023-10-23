@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="assets/css/explore.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
 	href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
@@ -25,21 +26,67 @@
 	<%@ include file="header.jsp"%>
 
 	<!-- background_image -->
+	<div class="ani">
+		<h3>
+			Shop our original product in <br> Our <br> Website
+		</h3>
+		<h3>this is hsfnskfj jnvfv vcjknfvejgklvbj kjbfdvkjbvbvf</h3>
+		<h3>cvbkngbdbkbmtfevdcv kmbvfgkbt kmbrdfglkbv</h3>
+	</div>
+	<script>
+    // Get all the h3 elements and store them in an array
+const headings = document.querySelectorAll('.ani h3');
 
-	<div class="back_groud">
-		<img src="assets/images/explorebackground2.jpg" alt="">
+function showHeading(index) {
+    // Add the "visible" class to the heading at the given index after a delay
+    setTimeout(() => {
+        headings[index].classList.add('visible');
+    }, index * 3000); // Multiply index by 3000 milliseconds (3 seconds) for the delay
+}
+
+// Loop through each heading and show them one by one
+headings.forEach((heading, index) => {
+    showHeading(index);
+});
+</script>
+
+
+
+	<div class="whole_c">
+		<img src="https://iili.io/JKYL38B.jpg" width="1500px" alt=""> <img
+			src="assets\images\explorehome2.jpg" width="1500px" alt=""> <img
+			src="assets\images\exploreho3.jpg" width="1500px" alt="">
 	</div>
 
-	<!-- search bar -->
+	<script>
+  // Get all the images and store them in an array
+     const images = document.querySelectorAll('.whole_c img');
+     let currentIndex = 0;
 
-	<div class="search1">
-		<h1>Simply Arts,Simply Beautiful</h1>
-		<p>Painting is just another way of keeping a diary</p>
-		<span>
-			<button>Search</button>
-		</span> <input type="search" id="search1" placeholder="What do you like?">
+     function showImage(index) {
+         // Hide all images
+         images.forEach(img => img.style.display = 'none');
+         // Show the image at the given index
+         images[index].style.display = 'block';
+     }
 
-	</div>
+     function startSlideShow() {
+         showImage(currentIndex);
+         // Increment the index for the next image
+         currentIndex++;
+         // Reset the index if it exceeds the number of images
+         if (currentIndex >= images.length) {
+             currentIndex = 0;
+         }
+         // Call the function recursively after a specific interval (e.g., 2000 milliseconds or 2 seconds)
+         setTimeout(startSlideShow, 3000); // Change 2000 to the desired interval in milliseconds
+     }
+
+     // Start the slideshow when the window loads
+     window.onload = startSlideShow;
+
+     </script>
+
 
 	<!-- comment for header down background -->
 	<div class="headerdown">
@@ -167,10 +214,11 @@
 			</a>
 			<p>Sculpture</p>
 		</div>
-		
-		
+
+
 		<div class="slider">
-			<a data-id="Watercolour"> <img src="https://i.pinimg.com/564x/92/c1/e4/92c1e4855a593e1b60645e9c8fa6e669.jpg"
+			<a data-id="Watercolour"> <img
+				src="https://i.pinimg.com/564x/92/c1/e4/92c1e4855a593e1b60645e9c8fa6e669.jpg"
 				width="220px" height="300px" alt="">
 			</a>
 			<p>Water colour</p>

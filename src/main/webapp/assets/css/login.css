@@ -7,6 +7,9 @@
     background-color:  rgba(251,234,220,255);
     
 }
+#space{
+	  background-color: white;
+}
 
 #img{
     position: absolute;

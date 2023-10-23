@@ -8,94 +8,97 @@
 body {
 	background-color: rgba(255, 242, 238, 255);
 }
- 
- 
-#class_div{
-   margin-right: 50px;  
-    display: flex;
-    align-items: center;
-    font-family: 'Outfit', sans-serif;
-}
-#fa_icon{
-    padding-left: 10px;
-    font-size: 15px;
-    padding-top: 5px;
-    color: gray;
+
+#class_div {
+	margin-right: 50px;
+	display: flex;
+	align-items: center;
+	font-family: 'Outfit', sans-serif;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-}
-.fa{
-    padding-left: 10px;
-     margin-left: 10px;
-    color: rgba(251,186,113,255);
+#fa_icon {
+	padding-left: 10px;
+	font-size: 15px;
+	padding-top: 5px;
+	color: gray;
 }
 
-header img{
-    margin-left: 20px;
+header {
+	display: flex;
+	justify-content: space-between;
 }
 
-#popup_cont img{
-    background-color: white;
+.fa {
+	padding-left: 10px;
+	margin-left: 10px;
+	color: rgba(251, 186, 113, 255);
 }
+
+header img {
+	margin-left: 20px;
+}
+
+#popup_cont img {
+	background-color: white;
+}
+
 #a_tag {
-    text-decoration: none;
-    color: orange;
-    padding-left: 20px;
-
+	text-decoration: none;
+	color: orange;
+	padding-left: 20px;
 }
 
-#none{
-    background-color: rgba(255, 242, 238, 255);
-    border: none;
+#none {
+	background-color: rgba(255, 242, 238, 255);
+	border: none;
 }
 
-#con_popup{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-    overflow: auto;
-    
-}
- 
-#popup_cont{
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background-color: white;
-    width: 300px;
-    padding-left: 50px;
-    position: absolute;
-    top: 170px;
-    left: 35%;
-    border-radius: 20px;
-    font-family: 'Outfit', sans-serif;
+#con_popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+	overflow: auto;
 }
 
-#popup_cont h4{
-    margin-left: 30px;
-    background-color: white;
+#popup_cont {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: white;
+	width: 300px;
+	padding-left: 50px;
+	position: absolute;
+	top: 170px;
+	left: 35%;
+	border-radius: 20px;
+	font-family: 'Outfit', sans-serif;
 }
-#popup_cont h3{
-    margin-left: 20px;
-    margin-bottom: 10px;
-    background-color: white
+
+#popup_cont h4 {
+	margin-left: 30px;
+	background-color: white;
 }
-#popup_cont button{
-    padding: 10px 30px 10px 30px;
-   background-color: rgba(251,186,113,255);
-    border-radius: 10px;
-    color: white;
-    margin-top: 20px;
-    border: none;
-    margin-left: 20px;
+
+#popup_cont h3 {
+	margin-left: 20px;
+	margin-bottom: 10px;
+	background-color: white
 }
+
+#popup_cont button {
+	padding: 10px 30px 10px 30px;
+	background-color: rgba(251, 186, 113, 255);
+	border-radius: 10px;
+	color: white;
+	margin-top: 20px;
+	border: none;
+	margin-left: 20px;
+}
+
 #art_con {
 	position: absolute;
 	top: 650px;
@@ -108,8 +111,7 @@ header img{
 /* backgroundimg */
 .backimg img {
 	width: 1490px;
-	margin-top: 40px;
-	height: 900px;
+	height: 850px;
 }
 
 .tag_hr {
@@ -477,4 +479,83 @@ to {
 	margin-left: 120px;
 	border-radius: 10px;
 	border: none;
+}
+
+/* filter */
+#search_bar {
+	margin-right: 10px;
+	padding: 18px 150px 18px 150px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+}
+
+.test_box {
+	margin: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 100px;
+}
+
+#famo {
+	background-color: rgba(251, 186, 113, 255);
+	border-radius: 20px;
+	padding: 18px;
+	color: white;
+}
+
+#textfil {
+	margin-left: 100px;
+	background-color: rgba(251, 186, 113, 255);
+	padding: 15px;
+	color: white;
+	border-radius: 20px;
+}
+
+#priceby {
+	margin-left: 20px;
+	padding: 15px;
+	border-color: rgba(251, 186, 113, 255);
+	padding-left: 20px;
+	border-radius: 15px;
+}
+
+
+.forgrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.secrow{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  gap: 20px;
+  
+ 
+}
+.imgclass h3{
+	color:rgba(251, 186, 113, 255);
+}
+
+.imgclass p{
+	color:white;
+}
+
+.imgclass{
+border-radius:20px;
+background-color:rgba(0, 0, 0, 0.7);;
+padding: 20px;
+}
+
+.headline h2{
+	font-size: 70px;
+	font-family: 'Kalam', cursive;
+	color:white;
 }

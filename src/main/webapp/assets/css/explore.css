@@ -314,3 +314,21 @@ main {
 	font-family: 'Poppins', sans-serif;
 	color: gray;
 }
+.transition-effect {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+
+.ani h3 {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+.ani{
+	position:absolute;
+	top:200px;
+	color:white;
+}

@@ -55,9 +55,6 @@ public class ArtistProduct extends HttpServlet {
 				out.println("Hello");
 			}
 
-		} catch (ProductExpection  e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (DAOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

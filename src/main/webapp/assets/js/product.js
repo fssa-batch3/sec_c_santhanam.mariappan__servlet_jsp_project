@@ -1,8 +1,7 @@
-// Function to open the popup
 
-let openPopUpBtns = document.querySelectorAll('#openPopupBtn');
+let openPopUps = document.querySelectorAll('#openPopupBtn');
 
-openPopUpBtns.forEach(function(button) {
+openPopUps.forEach(function(button) {
     button.addEventListener('click', function() {
         // Show the popup when the button is clicked
         document.getElementById('popup').style.display = 'block';
